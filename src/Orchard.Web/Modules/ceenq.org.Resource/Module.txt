@@ -1,0 +1,11 @@
+﻿Name: ceenq.org.Resource
+AntiForgery: enabled
+Author: Ceenq Software Solutions
+Website: http://ceenq.com
+Version: 1.0
+OrchardVersion: 1.7
+Description: Provides the ability to add content types associated with Christian teaching
+Dependencies: Orchard.Autoroute,Orchard.Warmup,Orchard.Projections,Orchard.Fields,Orchard.Taxonomies,ceenq.com.Core,ceenq.org.Services
+Features:
+    ceenq.org.Resource:
+        Description: Description for feature ceenq.org.Resource.

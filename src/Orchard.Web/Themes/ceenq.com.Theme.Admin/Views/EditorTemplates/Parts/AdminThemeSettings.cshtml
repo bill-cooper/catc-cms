@@ -1,0 +1,31 @@
+﻿@using System.Web.Mvc.Html
+@using Orchard.Mvc.Html
+@model ceenq.com.Theme.Admin.Models.AdminThemeSettingsPart
+
+<fieldset>
+    <legend>@T("Admin Branding Settings")</legend>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.LogoUrl)">@T("Logo URL")</label>
+        @Html.TextBoxFor(m => m.LogoUrl)
+        @Html.ValidationMessage("LogoUrl", "*")
+        <span class="hint">@T("Provide the url to an image that you would like to use in place of logo.png from the current admin theme")</span>
+    </div>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.Brand)">@T("Branding text")</label>
+        @Html.TextBoxFor(m => m.Brand)
+        @Html.ValidationMessage("Brand", "*")
+        <span class="hint">@T("If you just want the logo, then leave this blank")</span>
+    </div>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.Footer)">@T("Footer text")</label>
+        @Html.TextBoxFor(m => m.Footer)
+                @Html.ValidationMessage("Footer", "*")
+        <span class="hint">@T("Provide a value (this can include html) to override the footer text")</span>
+    </div>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.ProductCssUrl)">@T("Product style sheet override")</label>
+        @Html.TextBoxFor(m => m.ProductCssUrl)
+                @Html.ValidationMessage("ProductCssUrl", "*")
+        <span class="hint">@T("Provide the url to a style sheet that you would like to use in place of product.css from the current admin theme")</span>
+    </div>
+</fieldset>

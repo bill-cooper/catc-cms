@@ -1,0 +1,11 @@
+﻿Name: ceenq.com.Assets
+AntiForgery: enabled
+Author: Ceenq Software Solutions
+Website: http://ceenq.com
+Version: 1.0
+OrchardVersion: 1.0
+Description: Content Services Module
+Features:
+    ceenq.com.Assets:
+        Description: Content Services Module
+		Dependencies: Orchard.Users, ceenq.com.Core

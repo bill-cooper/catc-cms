@@ -1,0 +1,45 @@
+@model Orchard.ContentTypes.ViewModels.ListContentTypesViewModel
+@{
+    Style.Require("ContentTypesAdmin");
+    Script.Require("jQuery");
+    Script.Include("admin-contenttypes.js");
+    Layout.Title = T("Manage Content Types").ToString();
+    var isAdmin = String.Equals(WorkContext.CurrentUser.UserName, WorkContext.CurrentSite.SuperUser, StringComparison.Ordinal);
+}
+
+<div class="manage">
+    @Html.ActionLink(T("Create new type").ToString(), "Create", new{Controller="Admin",Area="Orchard.ContentTypes"}, new { @class = "button primaryAction" })
+</div>
+
+<ul class="contentItems">
+
+    @foreach (var type in Model.Types)
+    {
+
+        if (!isAdmin && type.DisplayName == "Account") { continue; }
+        if (!isAdmin && type.DisplayName == "Application") { continue; }
+        if (!isAdmin && type.DisplayName == "Content Document") { continue; }
+        if (!isAdmin && type.DisplayName == "Content Menu Item") { continue; }
+        if (!isAdmin && type.DisplayName == "Custom Link") { continue; }
+        if (!isAdmin && type.DisplayName == "Form") { continue; }
+        if (!isAdmin && type.DisplayName == "Html Menu Item") { continue; }
+        if (!isAdmin && type.DisplayName == "Layout") { continue; }
+        if (!isAdmin && type.DisplayName == "Menu") { continue; }
+        if (!isAdmin && type.DisplayName == "Route") { continue; }
+        if (!isAdmin && type.DisplayName == "RoutingServer") { continue; }
+        if (!isAdmin && type.DisplayName == "Search Form") { continue; }
+        if (!isAdmin && type.DisplayName == "Shape Link") { continue; }
+        if (!isAdmin && type.DisplayName == "Site") { continue; }
+        if (!isAdmin && type.DisplayName == "Taxonomy") { continue; }
+        if (!isAdmin && type.DisplayName == "Taxonomy Link") { continue; }
+        if (!isAdmin && type.DisplayName == "Layer") { continue; }
+        if (!isAdmin && type.DisplayName == "Projection") { continue; }
+        if (!isAdmin && type.DisplayName == "Query") { continue; }
+        if (!isAdmin && type.DisplayName == "Query Link") { continue; }
+        if (!isAdmin && type.DisplayName == "User") { continue; }
+        if (!isAdmin && type.Settings != null && type.Settings.ContainsKey("Stereotype") && type.Settings["Stereotype"] == "Widget") { continue; }
+        <li data-record-text="@type.DisplayName">
+            @Html.DisplayFor(m => type)
+        </li>
+    }
+</ul>

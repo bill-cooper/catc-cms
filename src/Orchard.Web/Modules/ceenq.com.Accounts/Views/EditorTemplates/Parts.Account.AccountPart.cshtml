@@ -1,0 +1,10 @@
+﻿@model ceenq.com.Accounts.Models.AccountPart
+<fieldset>
+
+    <div>
+        <label for="@Html.FieldIdFor(m => m.DisplayName)">@T("Account Name")</label>
+        @Html.EditorFor(m => m.DisplayName)
+        @Html.ValidationMessage("DisplayName", "*")
+        <span class="hint">@T("The name of the account")</span>
+    </div>
+</fieldset>

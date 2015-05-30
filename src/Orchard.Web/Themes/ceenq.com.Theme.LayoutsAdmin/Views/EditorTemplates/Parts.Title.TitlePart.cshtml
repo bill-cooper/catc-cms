@@ -1,0 +1,8 @@
+﻿@model Orchard.Core.Title.Models.TitlePart
+
+<div class="form-group">
+    <label for="">@Html.LabelFor(m => m.Title, T("Title")) </label>
+    @Html.TextBoxFor(m => m.Title, new { @class = "form-control", autofocus = "autofocus" })
+</div>
+
+

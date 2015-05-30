@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="OrchardCloudService" osFamily="4" osVersion="*" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" schemaVersion="2013-10.2.2">
+  <Role name="Orchard.Azure.Web">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Orchard.Azure.Media.StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=cnqtststore;AccountKey=hEc1kLGrdDipI53zqX8UvEcs0BsHEfZx1zWWV7S04MKzeEjAJMx+N86ZsmNfJt36PS/pdPdbYOI3y+rWlNy42g==" />
+      <Setting name="Orchard.Azure.Settings.StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=cnqtststore;AccountKey=hEc1kLGrdDipI53zqX8UvEcs0BsHEfZx1zWWV7S04MKzeEjAJMx+N86ZsmNfJt36PS/pdPdbYOI3y+rWlNy42g==" />
+      <Setting name="Orchard.Azure.OutputCache.HostIdentifier" value="" />
+      <Setting name="Orchard.Azure.OutputCache.CacheName" value="OutputCache" />
+      <Setting name="Orchard.Azure.OutputCache.AuthorizationToken" value="" />
+      <Setting name="Orchard.Azure.DatabaseCache.HostIdentifier" value="" />
+      <Setting name="Orchard.Azure.DatabaseCache.CacheName" value="DatabaseCache" />
+      <Setting name="Orchard.Azure.DatabaseCache.AuthorizationToken" value="" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=cnqtststore;AccountKey=hEc1kLGrdDipI53zqX8UvEcs0BsHEfZx1zWWV7S04MKzeEjAJMx+N86ZsmNfJt36PS/pdPdbYOI3y+rWlNy42g==" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Caching.NamedCaches" value="{&quot;caches&quot;:[{&quot;name&quot;:&quot;default&quot;,&quot;policy&quot;:{&quot;eviction&quot;:{&quot;type&quot;:0},&quot;expiration&quot;:{&quot;defaultTTL&quot;:10,&quot;isExpirable&quot;:true,&quot;type&quot;:1},&quot;serverNotification&quot;:{&quot;isEnabled&quot;:false}},&quot;secondaries&quot;:0},{&quot;name&quot;:&quot;SessionStateCache&quot;,&quot;policy&quot;:{&quot;eviction&quot;:{&quot;type&quot;:0},&quot;expiration&quot;:{&quot;defaultTTL&quot;:60,&quot;isExpirable&quot;:true,&quot;type&quot;:2},&quot;serverNotification&quot;:{&quot;isEnabled&quot;:false}},&quot;secondaries&quot;:0},{&quot;name&quot;:&quot;OutputCache&quot;,&quot;policy&quot;:{&quot;eviction&quot;:{&quot;type&quot;:0},&quot;expiration&quot;:{&quot;defaultTTL&quot;:5,&quot;isExpirable&quot;:true,&quot;type&quot;:1},&quot;serverNotification&quot;:{&quot;isEnabled&quot;:false}},&quot;secondaries&quot;:0},{&quot;name&quot;:&quot;DatabaseCache&quot;,&quot;policy&quot;:{&quot;eviction&quot;:{&quot;type&quot;:0},&quot;expiration&quot;:{&quot;defaultTTL&quot;:5,&quot;isExpirable&quot;:true,&quot;type&quot;:1},&quot;serverNotification&quot;:{&quot;isEnabled&quot;:false}},&quot;secondaries&quot;:0}]}" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Caching.DiagnosticLevel" value="1" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Caching.CacheSizePercentage" value="30" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Caching.ConfigStoreConnectionString" value="DefaultEndpointsProtocol=https;AccountName=cnqtststore;AccountKey=hEc1kLGrdDipI53zqX8UvEcs0BsHEfZx1zWWV7S04MKzeEjAJMx+N86ZsmNfJt36PS/pdPdbYOI3y+rWlNy42g==" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="ceenqUser" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="MIIBnQYJKoZIhvcNAQcDoIIBjjCCAYoCAQAxggFOMIIBSgIBADAyMB4xHDAaBgNVBAMME1dpbmRvd3MgQXp1cmUgVG9vbHMCEEhES7s6y2KTRuMZkMSapN0wDQYJKoZIhvcNAQEBBQAEggEAACBG3Cy4BgaHPwyOLB/7mRexvvIcXf6E8QL+Nzyzv/DS/KYG5bsSAjXYMDBA/zmZy9ubaV+NczirbI0fC9rnJKj8ZXg/uGAcSUoidjdk21a1tQeGwkEGEnCIpq3aShOU24ifqYjCgw4lktZoXVb/NpCe1HF7o8iHUJQtgO4I5dF8tFtPXUFJOpWPoJu0/ri7UJqAkCm44GEKkHCyRt2pEexYoeAPAX1tdl1VP69+5o8hjwGgHzHqxrPkt6ab4uS0gJq5Xq9ST7o6QYC57p6El8zVKRpes7deqQ3I+gzHOdHjA+oNlEmvNzX46oK3bvGBso8E5gTBnXlkGiwdlyAWVzAzBgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECAoMkN6DT9xvgBDbeKPkd/eBkkHu20L0KIDl" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2020-11-02T23:59:59.0000000-06:00" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" />
+    </ConfigurationSettings>
+    <Certificates>
+      <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="6153B1345BE743862B1555D67992C75D290677CC" thumbprintAlgorithm="sha1" />
+    </Certificates>
+  </Role>
+</ServiceConfiguration>

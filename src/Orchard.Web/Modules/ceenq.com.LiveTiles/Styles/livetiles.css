@@ -1,0 +1,25 @@
+﻿.flip-list li div.front {
+    background-color: red;
+}
+
+.flip-list li div.back {
+    background-color: green;
+}
+
+#fliptilecontainer {
+    width: 360px;
+    height: 240px;
+}
+
+/* row 1 */
+.gridpart1 {
+    background-position: 0px 0px;
+}
+
+
+.flip-list > li {
+    height: 200px;
+    margin: 0px;
+    padding: 0px;
+    width: 200px;
+}

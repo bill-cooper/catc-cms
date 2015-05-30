@@ -1,0 +1,14 @@
+@{
+    Layout.Title = T("Create New Content").ToString();
+    var isAdmin = String.Equals(WorkContext.CurrentUser.UserName, WorkContext.CurrentSite.SuperUser, StringComparison.Ordinal);
+
+}
+
+@foreach (var type in Model.ContentTypes) {
+
+
+    if (!isAdmin && type.DisplayName == "Form") { continue; }
+    if (!isAdmin && type.DisplayName == "Projection") { continue; }
+    
+    <p>@Html.ActionLink((string)type.DisplayName, "Create", new { Area = "Contents", Id = (string)type.Name, ContainerId = Model.ContainerId, ReturnUrl = Request.QueryString["ReturnUrl"] })</p>
+}

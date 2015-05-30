@@ -1,0 +1,19 @@
+﻿@{
+    Script.Include("carousel.js").AtFoot();
+    var itemClass = "item active";//active for the first one
+}
+
+
+<div class="carousel slide" id="this-carousel-id">
+    <div class="carousel-inner">
+        @foreach (var item in Model.ContentItems)
+        {
+            <div class="@itemClass">
+                @Display(item)
+            </div>
+            itemClass = "item";
+        }
+    </div>
+    <a class="carousel-control left" href="#this-carousel-id" data-slide="prev">‹</a><a class="carousel-control right" href="#this-carousel-id" data-slide="next">›</a>
+</div>
+

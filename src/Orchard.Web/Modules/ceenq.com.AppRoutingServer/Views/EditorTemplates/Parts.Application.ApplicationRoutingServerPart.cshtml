@@ -1,0 +1,19 @@
+@model ceenq.com.AppRoutingServer.ViewModels.ApplicationRoutingServerViewModel
+
+<fieldset>
+    <legend>@T("Routing Server")</legend>
+    <div class="editor-field">
+        @Html.DropDownListFor(model => model.SelectedRoutingServer,
+                      Model.RoutingServers.Select(s => new SelectListItem
+                      {
+                          Selected = s == Model.SelectedRoutingServer,
+                          Text = s,
+                          Value = s
+                      }),
+                      "Choose a Routing Server...")
+        @Html.ValidationMessageFor(model => model.SelectedRoutingServer)
+    </div>
+</fieldset>
+
+
+

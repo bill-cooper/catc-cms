@@ -1,0 +1,15 @@
+<Placement>
+  <Place Parts_Layout_Edit="-"/>
+  <Match ContentType="Layout">
+    <Place Parts_Layout_Edit="Content:20"/>
+    <Place Parts_Common_Body_Edit="-"/>
+    <Place Fields_Common_Text_Edit="-"/>
+    <Place Parts_Container_Edit="-"/>
+    <Place Fields_Input_Edit="-"/>
+    <Place Fields_Numeric_Edit="-"/>
+    <Place Fields_Link_Edit="-"/>
+    <Place Fields_Enumeration_Edit="-"/>
+    <Place Fields_Boolean_Edit="-"/>
+    <Place Fields_DateTime_Edit="-"/>
+  </Match>
+</Placement>

@@ -1,0 +1,24 @@
+﻿.add-code
+{
+    text-align:left;
+    margin: 5px 0 5px 0;
+}
+.codes-list
+{
+    width:100%;    
+}
+.codes-list th
+{
+    background-color:#f5f5f5;
+    font-size:14px;
+    font-weight:bold;
+}
+.codes-list td, .codes-list th
+{
+    border-bottom:1px solid #eaeaea;
+    padding:5px;
+}
+.codes-list .code-action
+{
+    width:20%;
+}

@@ -1,0 +1,7 @@
+Name: Church at the Cross
+Author: Harvest CMS
+Website: http://www.harvestcms.org
+Description: Church at the Cross theme
+Version: 1.0
+BaseTheme: Bootstrap
+Zones: Seo, HeaderContactLine

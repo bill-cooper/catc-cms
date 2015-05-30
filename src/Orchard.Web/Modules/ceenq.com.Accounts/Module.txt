@@ -1,0 +1,12 @@
+﻿Name: ceenq.com.Accounts
+AntiForgery: enabled
+Author: Ceenq Cloud Solutions
+Website: http://cnq.io
+Version: 1.8
+OrchardVersion: 1.8
+Description: ceenq's account mgmt framework.
+Features:
+    ceenq.com.Accounts:
+		Name: ceenq.com.Accounts
+        Description: ceenq's account mgmt framework.
+		Dependencies: Orchard.Users, Orchard.Roles, ceenq.com.Core, ceenq.com.AzureManagement, ceenq.com.AwsManagement

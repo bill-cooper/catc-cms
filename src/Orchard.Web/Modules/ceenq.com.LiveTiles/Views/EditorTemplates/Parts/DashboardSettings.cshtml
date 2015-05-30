@@ -1,0 +1,14 @@
+@model ceenq.com.LiveTiles.ViewModels.DashboardSettingsViewModel
+@using Orchard.ContentManagement;
+@using ceenq.com.LiveTiles.ViewModels;
+
+<fieldset>
+    @Html.LabelFor(m => m.CurrentMenuId, T("Menu to Display"))
+    <select id="@Html.FieldIdFor(m => m.CurrentMenuId)" name="@Html.FieldNameFor(m => m.CurrentMenuId)">
+        @foreach (ContentItem menu in Model.Menus)
+        {
+            @Html.SelectOption(Model.CurrentMenuId, menu.Id, Html.ItemDisplayText(menu).ToString())
+        }
+    </select>
+    <span class="hint">@T("Select which menu you want to display on the dashboard")</span>
+</fieldset>

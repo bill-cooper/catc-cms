@@ -1,0 +1,6 @@
+﻿@if (WorkContext.CurrentUser == null)
+{
+    <span class="pull-right">
+        @Html.ActionLink(T("Sign In").ToString(), "LogOn", new { Controller = "Account", Area = "Orchard.Users" }, new { rel = "nofollow" })
+    </span>
+}

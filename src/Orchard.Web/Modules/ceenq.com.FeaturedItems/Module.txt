@@ -1,0 +1,11 @@
+﻿Name: ceenq.com.FeaturedItems
+AntiForgery: enabled
+Author: Ceenq Software Solutions
+Website: http://ceenq.com
+Version: 1.0
+OrchardVersion: 1.7
+Description: Module that provides featured items functionality
+Dependencies: Orchard.Taxonomies
+Features:
+    ceenq.com.FeaturedItems:
+        Description: Module that provides featured items functionality

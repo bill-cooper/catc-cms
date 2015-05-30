@@ -1,0 +1,21 @@
+﻿@{
+    IEnumerable<object> blogPosts = Model.ContentItems.ContentItems;
+}
+
+<div class="row">
+    <div class="flexslider unstyled" data-plugin-options="{&quot;directionNav&quot;:false, &quot;animation&quot;:&quot;slide&quot;}">
+        <ul class="slides">
+            @{ int postIndex = 0;}
+            <li>
+                @foreach (dynamic post in blogPosts)
+                {
+                    string newLi = (++postIndex) % 2 == 0 ? "</li><li>" : "";
+                    <text>
+                        @Display(post)
+                        @Html.Raw(newLi)
+                    </text>
+                }
+            </li>
+        </ul>
+    </div>
+</div>

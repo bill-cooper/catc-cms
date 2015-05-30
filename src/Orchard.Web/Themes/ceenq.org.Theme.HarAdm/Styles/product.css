@@ -1,0 +1,13 @@
+﻿.brand-logo {
+    background-image: url(images/logo.png);
+    width: 30px;
+    height: 45px;
+    line-height: normal;
+    vertical-align: baseline;
+    position: absolute;
+    margin-top: -13px;
+}
+
+.brand-text {
+    padding-left: 40px;
+}

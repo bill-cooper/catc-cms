@@ -1,0 +1,18 @@
+﻿@{
+    var userName = "";
+    try
+    {
+        userName = Model.ContentPart.Owner.UserName;
+    }
+    catch { }
+}
+<span>
+    <i class="icon-calendar"></i>
+    @Display.PublishedState(createdDateTimeUtc: Model.ContentPart.CreatedUtc, publisheddateTimeUtc: Model.ContentPart.PublishedUtc)
+</span>
+@if (userName != "")
+{
+    <span><i class="icon-user"></i>
+        By @Model.ContentPart.Owner.UserName
+    </span>
+}

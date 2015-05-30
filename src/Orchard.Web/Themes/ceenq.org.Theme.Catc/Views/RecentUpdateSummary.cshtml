@@ -1,0 +1,14 @@
+﻿
+<ol>
+    @foreach (var item in Model)
+    {
+        <li>
+            <article>
+                <header>
+                    @Display(Model.Header)
+                </header>
+                @Display(Model.Content)
+            </article>
+        </li>
+    }
+</ol>

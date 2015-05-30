@@ -1,0 +1,18 @@
+<Placement>
+  <!-- Customize where the shapes are rendered -->
+  
+  <Match DisplayType="Detail">
+    <Place Parts_Share_ShareBar="Content:last"/>
+  </Match>
+  
+  <Place Parts_Blogs_BlogArchives="Content:before"/>
+  <Match ContentType="Page">
+    <Place Parts_Common_Metadata="-"/>
+    <Place Parts_Common_Metadata_Summary="-"/>
+    <Place Parts_Tags_ShowTags="-"/>
+  </Match>
+ 
+  <Match ContentType="Blog">
+    <Place Parts_Common_Metadata="-"/>
+  </Match>
+</Placement>

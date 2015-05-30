@@ -1,0 +1,11 @@
+﻿Name: ceenq.com.SshClient
+AntiForgery: enabled
+Author: The Orchard Team
+Website: http://orchardproject.net
+Version: 1.0
+OrchardVersion: 1.0
+Description: Description for the module
+Features:
+    ceenq.com.SshClient:
+        Description: Description for feature ceenq.com.SshClient.
+		Dependencies: ceenq.com.Core

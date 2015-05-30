@@ -1,0 +1,11 @@
+﻿Name: ceenq.com.AssetImport
+AntiForgery: enabled
+Author: The Orchard Team
+Website: http://orchardproject.net
+Version: 1.0
+OrchardVersion: 1.0
+Description: Provides a way to import a zipped directory of content
+Features:
+    ceenq.com.AssetImport:
+        Description: Provides a way to import a zipped directory of content
+		Dependencies: ceenq.com.Assets, ceenq.com.Core

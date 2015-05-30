@@ -1,0 +1,19 @@
+﻿@model ceenq.com.AssetImport.ViewModels.PurgeViewModel
+@{
+
+    Layout.Title = T("Account Asset Purge").ToString();
+}
+
+@using (Html.BeginFormAntiForgeryPost("Purge"))
+{
+    @Html.ValidationSummary();
+
+    <fieldset>
+        @Html.LabelFor(m => m.Subdirectory, T("Only purge from this sub directory"))
+        @Html.TextBoxFor(m => m.Subdirectory)
+        <span class="hint">@T("ex. /some-directory  will only purge files within than directory")</span>
+    </fieldset>
+    <fieldset>
+        <button class="primaryAction" type="submit">@T("Purge")</button>
+    </fieldset>
+}

@@ -1,0 +1,11 @@
+﻿Name: ceenq.com.Logging
+AntiForgery: enabled
+Author: Ceenq Software Solutions
+Website: http://ceenq.com
+Version: 1.0
+OrchardVersion: 1.7
+Description: ceenq logging module.
+Dependencies: ceenq.com.Core
+Features:
+    ceenq.com.Logging:
+        Description: This module add a interface for seeing recent error log entries.

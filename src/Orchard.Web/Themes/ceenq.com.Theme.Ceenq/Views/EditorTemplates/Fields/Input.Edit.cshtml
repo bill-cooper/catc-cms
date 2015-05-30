@@ -1,0 +1,17 @@
+﻿@model Orchard.Fields.Fields.InputField
+@using Orchard.Utility.Extensions;
+@using Orchard.Fields.Settings;
+@{
+    var settings = Model.PartFieldDefinition.Settings.GetModel<InputFieldSettings>();
+}
+<div class="form-group">
+    <label for="@Html.FieldIdFor(m => m.Value)" class="col-sm-4 control-label">@Model.DisplayName</label>
+    <div class="col-sm-8">
+        <input type="@settings.Type.ToString().ToLower()" id="@Html.FieldIdFor(m => m.Value)" name="@Html.FieldNameFor(m => m.Value)" class="form-control" @if (!String.IsNullOrWhiteSpace(settings.Title)) { <text> title="@settings.Title" </text>    } value="@Model.Value" @if (settings.Required) { <text> required="required" </text>     } @if (settings.AutoFocus) { <text> autofocus="autofocus" </text>     } @if (settings.AutoComplete) { <text> autocomplete="on" </text>     } @if (!string.IsNullOrWhiteSpace(settings.Placeholder)) { <text> placeholder="@settings.Placeholder" </text>    } @if (!string.IsNullOrEmpty(settings.Pattern)) { <text> pattern="@settings.Pattern" </text>    } @if (settings.MaxLength > 1) { <text> maxlength="@settings.MaxLength.ToString()" </text>    } />
+        @Html.ValidationMessageFor(m => m.Value)
+        @if (HasText(settings.Hint))
+        {
+            <span class="hint">@settings.Hint</span>
+        }
+    </div>
+</div>

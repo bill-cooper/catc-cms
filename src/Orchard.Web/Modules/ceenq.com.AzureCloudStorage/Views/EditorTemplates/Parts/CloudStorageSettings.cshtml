@@ -1,0 +1,19 @@
+﻿@model ceenq.com.AzureCloudStorage.Models.CloudStorageSettingsPart
+
+
+<fieldset>
+    <legend>@T("Cloud Storage Settings")</legend>
+
+    <div>
+        <label for="@Html.FieldIdFor(m => m.StorageAccount)">@T("Storage Account")</label>
+        @Html.EditorFor(m => m.StorageAccount)
+        @Html.ValidationMessage("StorageAccount", "*")
+        <span class="hint">@T("Storage account name")</span>
+    </div>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.StorageKey)">@T("Storage Account Key")</label>
+        @Html.EditorFor(m => m.StorageKey)
+        @Html.ValidationMessage("StorageKey", "*")
+        <span class="hint">@T("Storage key")</span>
+    </div>
+</fieldset>

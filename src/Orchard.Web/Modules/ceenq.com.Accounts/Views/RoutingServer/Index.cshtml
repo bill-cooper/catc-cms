@@ -1,0 +1,78 @@
+@model ceenq.com.Accounts.ViewModels.RoutingServerIndexViewModel
+@using Orchard.Utility.Extensions;
+@using Orchard.ContentManagement;
+@using Orchard.Core.Common.Models;
+@{
+    Script.Require("ShapesBase");
+
+    Layout.Title = T("Routing Servers").ToString();
+    
+}
+
+@using (Html.BeginFormAntiForgeryPost())
+{
+    @Html.ValidationSummary();
+    <div class="manage">@Html.ActionLink(T("Provision a Routing Server").ToString(), "Create", new { }, new { @class = "button primaryAction" })</div>
+    <fieldset>
+        <table class="items" summary="@T("This is a list of the routing servers currently associated with this account")">
+            <colgroup>
+                <col id="Col1" />
+                <col id="Col2" />
+                <col id="Col3" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th scope="col">@T("Name")</th>
+                    <th scope="col">@T("Dns Name")</th>
+                    <th scope="col">@T("Ip Address")</th>
+                    <th scope="col">@T("Connection Port")</th>
+                    <th scope="col">@T("Created")</th>
+                    <th scope="col">@T("Actions")</th>
+                </tr>
+            </thead>
+            @foreach (var row in Model.Rows)
+            {
+                var commonPart = row.As<CommonPart>();
+                if (!string.IsNullOrEmpty(row.IpAddress))
+                {
+                    <tr>
+                        <td>@row.Name</td>
+                        <td>@row.DnsName</td>
+                        <td>@row.IpAddress</td>
+                        <td>@row.ConnectionPort</td>
+                        @if (commonPart.CreatedUtc.HasValue)
+                        {
+                            <td>@Display.DateTimeRelative(DateTimeUtc: commonPart.CreatedUtc.Value)</td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+                        <td>
+                            <a href="@Url.Action("Log", new {accountName = Model.AccountName, ipAddress = row.IpAddress })">@T("View Log")</a> |
+                            <a href="@Url.Action("Clear", new { accountName = Model.AccountName, ipAddress = row.IpAddress, returnUrl = ViewContext.RequestContext.HttpContext.Request.ToUrlString() })" itemprop="UnsafeUrl">@T("Clear Log")</a> |
+                            <a href="@Url.Action("RestartWebServer", new { accountName = Model.AccountName, ipAddress = row.IpAddress, returnUrl = ViewContext.RequestContext.HttpContext.Request.ToUrlString() })" itemprop="UnsafeUrl">@T("Restart Web Server")</a> |
+                            <a href="@Url.Action("RestartVm", new { accountName = Model.AccountName, row.Id, returnUrl = ViewContext.RequestContext.HttpContext.Request.ToUrlString() })" itemprop="UnsafeUrl">@T("Restart VM")</a> |
+                            <a href="@Url.Action("PowerOnVm", new { accountName = Model.AccountName, row.Id, returnUrl = ViewContext.RequestContext.HttpContext.Request.ToUrlString() })" itemprop="UnsafeUrl">@T("Power On VM")</a> |
+                            <a href="@Url.Action("PowerOffVm", new { accountName = Model.AccountName, row.Id, returnUrl = ViewContext.RequestContext.HttpContext.Request.ToUrlString() })" itemprop="UnsafeUrl">@T("Power Off VM")</a> |
+                            <a href="@Url.Action("Delete", new { accountName = Model.AccountName, row.Id, returnUrl = ViewContext.RequestContext.HttpContext.Request.ToUrlString() })" itemprop="RemoveUrl UnsafeUrl">@T("Delete")</a>
+                        </td>
+                    </tr>
+                }
+                else
+                {
+                    <tr>
+                        <td>@row.Name</td>
+                        <td>@T("No Assoicated Server")</td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <a href="@Url.Action("Delete", new {row.Id, returnUrl = ViewContext.RequestContext.HttpContext.Request.ToUrlString()})" itemprop="RemoveUrl UnsafeUrl">@T("Delete")</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </table>
+
+    </fieldset>
+}

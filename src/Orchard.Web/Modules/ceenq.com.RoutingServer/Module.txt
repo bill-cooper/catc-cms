@@ -1,0 +1,11 @@
+﻿Name: ceenq.com.RoutingServer
+AntiForgery: enabled
+Author: Ceenq Software Solutions
+Website: http://ceenq.com
+Version: 1.0
+OrchardVersion: 1.7
+Description: Used to configure and manage the Routing Server.
+Features:
+    ceenq.com.RoutingServer:
+        Description: Used to configure and manage the Routing Server.
+		Dependencies: ceenq.com.Core

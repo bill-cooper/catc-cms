@@ -1,0 +1,56 @@
+@model ceenq.com.Accounts.ViewModels.ApplicationsIndexViewModel
+@using Orchard.Utility.Extensions;
+@{
+    Script.Require("ShapesBase");
+
+    Layout.Title = T("Applications").ToString();
+}
+
+@using(Html.BeginFormAntiForgeryPost()) {
+    @Html.ValidationSummary();
+    <fieldset class="bulk-actions">
+        <label for="publishActions">@T("Actions:")</label>
+        <select id="Select1" name="applicationActions">
+            <option value="1">@T("Delete")</option>
+        </select>
+        <button type="submit">@T("Apply")</button>
+    </fieldset>
+    <div class="manage">@Html.ActionLink(T("Add a application").ToString(), "Create","Application", new { accountName = Model.AccountName }, new { @class = "button primaryAction" })</div>
+    <fieldset>
+        <table class="items" summary="@T("This is a table of the applications currently available for use.")">
+            <colgroup>
+                <col id="Col1" />
+                <col id="Col2" />
+                <col id="Col3" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th scope="col"><input type="checkbox" class="check-all"/></th>
+                    <th scope="col">@T("Name")</th>
+                    <th scope="col">@T("Url")</th>
+                    <th scope="col">@T("Routing Server")</th>
+                    <th scope="col">@T("IP Address")</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            @foreach (var row in Model.Rows) {
+                <tr>
+                    <td><input type="checkbox" value="true" name="@("Checkbox." + row.Id)"/></td>
+                    <td>@Html.ActionLink(row.Name, "Edit", new { accountName = Model.AccountName, id = row.Id })</td>
+                    <td><a href="@row.Url" target="_blank">@row.Url</a></td>
+                    <td>@row.RoutingServer</td>
+                    <td>@row.IpAddress</td>
+                    <td>
+                        @Html.ActionLink(T("View Config").ToString(), "ViewConfig", new { accountName = Model.AccountName, applicationName = row.Name })|
+                        @Html.ActionLink(T("View Log").ToString(), "ViewLog", new { accountName = Model.AccountName, id = row.Id })| 
+                        @Html.ActionLink(T("Edit").ToString(), "Edit", new { accountName = Model.AccountName, id = row.Id })
+                        @if (row.Name != "Administrator") {
+                            @T(" | ")
+                            <a href="@Url.Action("Delete", new { accountName = Model.AccountName, id = row.Id, returnUrl = ViewContext.RequestContext.HttpContext.Request.ToUrlString() })" itemprop="RemoveUrl UnsafeUrl">@T("Delete")</a>                       
+                        }
+                    </td>
+                </tr>
+            }
+        </table>
+    </fieldset>
+}

@@ -1,0 +1,7 @@
+﻿@model ceenq.com.Common.ViewModels.UserProfileViewModel
+           
+<fieldset>
+    @Html.LabelFor(m => m.Name, T("Name"))
+    @Html.TextBoxFor(m=>m.Name, new { @class = "textMedium" })
+    @Html.ValidationMessageFor(m=>m.Name, "*")
+</fieldset>

@@ -1,0 +1,12 @@
+﻿@using ceenq.org.Resource.Models
+@{
+    Orchard.ContentManagement.ContentItem contentItem = Model.ContentPart.ContentItem;
+    string title = Model.Title.ToString();
+    var resourcePart = (ResourcePart)Model.ContentItem.Get(typeof(ResourcePart));
+}
+
+<div class="post-title">
+    <h2>@Html.ItemDisplayLink(title, contentItem)</h2>
+     
+</div>
+<div class="post-meta">@resourcePart.DeliveredUtc.Value.ToShortDateString()</div>

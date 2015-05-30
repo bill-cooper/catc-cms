@@ -1,0 +1,10 @@
+﻿@model ceenq.org.Services.Models.ESVBibleServiceSettingsPart
+<fieldset>
+    <legend>@T("ESV Bible Service")</legend>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.EsvBibleServiceKey)">@T("Service API Key for ESV Bible")</label>
+        @Html.EditorFor(m => m.EsvBibleServiceKey)
+        @Html.ValidationMessage("EsvBibleServiceKey", "*")
+        <span class="hint">@T("Go to") <a target="_blank" href="http://www.esvapi.org/signup">http://www.esvapi.org/signup</a>  @T("to request an API key")</span>
+    </div>
+</fieldset>

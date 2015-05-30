@@ -1,0 +1,12 @@
+﻿Name: ceenq.com.Layouts
+AntiForgery: enabled
+Author: The Orchard Team
+Website: http://orchardproject.net
+Version: 1.0
+OrchardVersion: 1.0
+Description: Description for the module
+Dependencies: Orchard.Layouts
+Features:
+    ceenq.com.Layouts:
+        Description: Description for feature ceenq.com.Layouts.
+		Dependencies: ceenq.com.Core, Orchard.ContentPermissions

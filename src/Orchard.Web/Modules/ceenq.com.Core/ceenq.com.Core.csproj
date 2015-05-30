@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6E1DF577-7B1F-4DE4-AA87-E55E71F47260}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ceenq.com.Core</RootNamespace>
+    <AssemblyName>ceenq.com.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=3.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\autofac\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\newtonsoft.json\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\aspnetwebapi\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\aspnetwebapi\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\aspnetwebapi\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\aspnetmvc\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Recipes\ceenq.coresystem.recipe.xml" />
+    <Content Include="Web.config" />
+    <Content Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Module.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Orchard\Orchard.Framework.csproj">
+      <Project>{2d1d92bb-4555-4cbe-8d0e-63563d6ce4c6}</Project>
+      <Name>Orchard.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\Orchard.Core.csproj">
+      <Project>{9916839c-39fc-4ceb-a5af-89ca7e87119f}</Project>
+      <Name>Orchard.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Users\" />
+    <Folder Include="ViewModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Accounts\IAccountContext.cs" />
+    <Compile Include="Accounts\IAccountCreationEventHandler.cs" />
+    <Compile Include="Accounts\IAccountDeletionEventHandler.cs" />
+    <Compile Include="Accounts\AccountContextExtensions.cs" />
+    <Compile Include="Api\AsyncHttpContextAccessor.cs" />
+    <Compile Include="Api\IHttpAuthorizationFilter.cs" />
+    <Compile Include="Api\JsonFormattingModule.cs" />
+    <Compile Include="Api\WebApiActionFilter.cs" />
+    <Compile Include="Applications\IApplicationDnsNamesService.cs" />
+    <Compile Include="Applications\IApplicationEventHandler.cs" />
+    <Compile Include="Applications\IDynamicApplicationEventHandler.cs" />
+    <Compile Include="Commands\CoreSettingsCommands.cs" />
+    <Compile Include="Extensions\RequestContextExtensions.cs" />
+    <Compile Include="Infrastructure\Compute\IListFilesCommand.cs" />
+    <Compile Include="Infrastructure\Compute\IInstallZipCommand.cs" />
+    <Compile Include="Infrastructure\Compute\IZipCommand.cs" />
+    <Compile Include="Infrastructure\Compute\IReadFileCommand.cs" />
+    <Compile Include="Infrastructure\Compute\IMountHelper.cs" />
+    <Compile Include="Infrastructure\Compute\IServerCommandEventHandler.cs" />
+    <Compile Include="Routing\IApplicationRoutingServer.cs" />
+    <Compile Include="Routing\IRoutingServerConfigService.cs" />
+    <Compile Include="Routing\IRoute.cs" />
+    <Compile Include="Assets\IAccountEventHandler.cs" />
+    <Compile Include="Assets\IAssetStorageCredentialsProvider.cs" />
+    <Compile Include="ContentManagement\FieldBuilderAttribute.cs" />
+    <Compile Include="ContentManagement\TaxonomyFieldBuilderAttribute.cs" />
+    <Compile Include="ContentManagement\WithField.cs" />
+    <Compile Include="Environment\ThreadSafeHttpContextAccessor.cs" />
+    <Compile Include="Infrastructure\Compute\ICreateDirectoryCommand.cs" />
+    <Compile Include="Infrastructure\Compute\IDeleteCommand.cs" />
+    <Compile Include="Infrastructure\Compute\IGetFileCommand.cs" />
+    <Compile Include="Infrastructure\Compute\IGetFileSizeCommand.cs" />
+    <Compile Include="Infrastructure\Compute\IInstallFileSystemUtilities.cs" />
+    <Compile Include="Infrastructure\Compute\IInstallNginxCommand.cs" />
+    <Compile Include="Infrastructure\Compute\IMoveCommand.cs" />
+    <Compile Include="Infrastructure\Compute\INginxRestartCommand.cs" />
+    <Compile Include="Infrastructure\Compute\INginxReloadCommand.cs" />
+    <Compile Include="Infrastructure\Compute\IServerManagement.cs" />
+    <Compile Include="Infrastructure\Compute\ITruncateFileCommand.cs" />
+    <Compile Include="Infrastructure\Compute\IUpdateAptGetCommand.cs" />
+    <Compile Include="Infrastructure\Compute\IWriteFile.cs" />
+    <Compile Include="Infrastructure\Compute\ServerOperationParameters.cs" />
+    <Compile Include="Infrastructure\Compute\ServerInfo.cs" />
+    <Compile Include="Infrastructure\Database\DatabaseConnectionInfo.cs" />
+    <Compile Include="Infrastructure\Database\DatabaseCreateParameters.cs" />
+    <Compile Include="Infrastructure\Database\IDatabaseManagement.cs" />
+    <Compile Include="Data\Migration\ContentDefinitionManagerHelper.cs" />
+    <Compile Include="Data\Migration\ContentPartDefinitionBuilderHelper.cs" />
+    <Compile Include="Data\Migration\SchemaBuilderHelper.cs" />
+    <Compile Include="DefaultImplementationNotifier.cs" />
+    <Compile Include="Drivers\CoreSettingsPartDriver.cs" />
+    <Compile Include="Environment\Constants.cs" />
+    <Compile Include="Environment\DataInitializer.cs" />
+    <Compile Include="Applications\IApplicationRequestContext.cs" />
+    <Compile Include="Environment\Roles.cs" />
+    <Compile Include="Extensions\EncodingExtensions.cs" />
+    <Compile Include="Extensions\StorageProviderExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Extensions\TypeExtensions.cs" />
+    <Compile Include="Extensions\UserExtensions.cs" />
+    <Compile Include="Extensions\WorkContextExtensions.cs" />
+    <Compile Include="Handlers\CoreSettingsPartHandler.cs" />
+    <Compile Include="Http\InMemoryMultipartFormDataStreamProvider.cs" />
+    <Compile Include="Infrastructure\Compute\IMountCommand.cs" />
+    <Compile Include="Infrastructure\Compute\IServerCommandClient.cs" />
+    <Compile Include="Infrastructure\Compute\IServerCommandClientContext.cs" />
+    <Compile Include="Infrastructure\Compute\IServerCommandClientProvider.cs" />
+    <Compile Include="Infrastructure\Compute\IServerCommandProvider.cs" />
+    <Compile Include="Infrastructure\Compute\ServerCommandException.cs" />
+    <Compile Include="Infrastructure\Compute\IServerCommand.cs" />
+    <Compile Include="Infrastructure\Compute\ServerCommandResult.cs" />
+    <Compile Include="Infrastructure\Compute\SshConnectionInfo.cs" />
+    <Compile Include="Infrastructure\Dns\IDnsManager.cs" />
+    <Compile Include="Models\CoreSettingsPart.cs" />
+    <Compile Include="Applications\IApplication.cs" />
+    <Compile Include="Accounts\IAccount.cs" />
+    <Compile Include="Models\IUserAccount.cs" />
+    <Compile Include="Models\IUserApplications.cs" />
+    <Compile Include="Routing\IRoutingConfigFile.cs" />
+    <Compile Include="Routing\IRoutingServer.cs" />
+    <Compile Include="Routing\IRoutingServerCreationEventHandler.cs" />
+    <Compile Include="Routing\IRoutingServerMaintenanceEventHandler.cs" />
+    <Compile Include="Routing\IRoutingServerDeletionEventHandler.cs" />
+    <Compile Include="Routing\IRoutingServerManager.cs" />
+    <Compile Include="Routing\IRoutingServerProvider.cs" />
+    <Compile Include="Routing\IRouteService.cs" />
+    <Compile Include="Routing\RoutingServerFile.cs" />
+    <Compile Include="Routing\RoutingServerInfo.cs" />
+    <Compile Include="Security\IApplicationAuthorizationService.cs" />
+    <Compile Include="Security\IApplicationAuthorizationServiceEventHandler.cs" />
+    <Compile Include="Accounts\IAccountManager.cs" />
+    <Compile Include="Accounts\IAccountHelper.cs" />
+    <Compile Include="Applications\IApplicationService.cs" />
+    <Compile Include="Routing\IRoutingServerConfigProvider.cs" />
+    <Compile Include="Assets\IAssetStorageManager.cs" />
+    <Compile Include="Tenants\ITenantRecipe.cs" />
+    <Compile Include="Tenants\ITenantService.cs" />
+    <Compile Include="Tenants\TenantContextProvider.cs" />
+    <Compile Include="Tenants\TenantCreationContext.cs" />
+    <Compile Include="Assets\IAssetFile.cs" />
+    <Compile Include="Assets\IAssetFolder.cs" />
+    <Compile Include="Assets\IAssetDirectoryItem.cs" />
+    <Compile Include="Assets\IAssetManager.cs" />
+    <Compile Include="Utility\ModuleUtility.cs" />
+    <Compile Include="Utility\PathHelper.cs" />
+    <Compile Include="Utility\TypeHelper.cs" />
+    <Compile Include="Utility\UrlHelper.cs" />
+    <Compile Include="Validation\NameValidator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\EditorTemplates\Parts\CoreSettings.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Placement.info" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target> -->
+  <Target Name="AfterBuild" DependsOnTargets="AfterBuildCompiler">
+    <PropertyGroup>
+      <AreasManifestDir>$(ProjectDir)\..\Manifests</AreasManifestDir>
+    </PropertyGroup>
+    <!-- If this is an area child project, uncomment the following line:
+    <CreateAreaManifest AreaName="$(AssemblyName)" AreaType="Child" AreaPath="$(ProjectDir)" ManifestPath="$(AreasManifestDir)" ContentFiles="@(Content)" />
+    -->
+    <!-- If this is an area parent project, uncomment the following lines:
+    <CreateAreaManifest AreaName="$(AssemblyName)" AreaType="Parent" AreaPath="$(ProjectDir)" ManifestPath="$(AreasManifestDir)" ContentFiles="@(Content)" />
+    <CopyAreaManifests ManifestPath="$(AreasManifestDir)" CrossCopy="false" RenameViews="true" />
+    -->
+  </Target>
+  <Target Name="AfterBuildCompiler" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(ProjectDir)\..\$(ProjectName)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>45979</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://orchard.codeplex.com</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

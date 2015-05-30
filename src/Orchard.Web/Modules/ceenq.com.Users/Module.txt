@@ -1,0 +1,11 @@
+﻿Name: ceenq.com.Users
+AntiForgery: enabled
+Author: Ceenq Software Solutions
+Website: http://ceenq.com
+Version: 1.0
+OrchardVersion: 1.0
+Description: Provides authentication API and overrides some of Orchard's base user functionality
+Features:
+    ceenq.com.Users:
+        Description: Provides authentication API and overrides some of Orchard's base user functionality
+		Dependencies: ceenq.com.Core

@@ -1,0 +1,13 @@
+﻿Name: Vitus.GoogleCalendar
+AntiForgery: enabled
+Author: Vojtěch Vít
+Website: http://vitusgooglecalendar.codeplex.com
+Version: 1.2
+OrchardVersion: 1.7
+Description: Adds a Google Calendar widget displayed via the FullCalendar jQuery plugin.
+Features:
+    Vitus.GoogleCalendar:
+        Name: Vitus Google Calendar
+        Description: Adds a Google Calendar widget displayed via the FullCalendar jQuery plugin.
+        Dependencies: Orchard.jQuery
+        Category: Content

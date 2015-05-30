@@ -1,0 +1,25 @@
+@model ceenq.com.Apps.ViewModels.UserApplicationsViewModel
+
+@*
+    I have hidden this for now.  Currently, we are not using the functionality that allows authentication to a cnq app, So I am hiding to minimize confusion to the end
+    user.  If we do not go forward with the feature, then this code should be factored out of the codebase along with supporting handlers, drivers, and so on
+    <fieldset>
+        <legend>@T("Applications")</legend>
+        @if (Model.Applications.Count > 0) {
+            var index = 0;
+            foreach (var entry in Model.Applications) {
+
+                @Html.Hidden("Applications[" + index + "].ApplicationId", entry.ApplicationId)
+                @Html.Hidden("Applications[" + index + "].Name", entry.Name)
+
+        <div>
+            @Html.CheckBox("Applications[" + index + "].UserHasApplicationAccess", entry.UserHasApplicationAccess)
+            <label class="forcheckbox" for="@Html.FieldIdFor(m => m.Applications[index].UserHasApplicationAccess)">@entry.Name</label>
+        </div>
+                index++;
+            }
+        }
+        else {
+        <p>@T("Choose an accont and save.  Then you will be able to choose an application from the list of application associated with chosen account.")</p>
+        }
+    </fieldset>*@

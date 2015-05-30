@@ -1,0 +1,8 @@
+Name: Harvest CMS
+Author: Ceenq Software Solutions
+Website: http://www.harvestcms.org
+Description: Admin panel theme for HarvestCMS
+Version: 1.0
+BaseTheme: ceenq.com.Theme.Admin
+# todo: provide tags
+# Tags: Classic, Serif

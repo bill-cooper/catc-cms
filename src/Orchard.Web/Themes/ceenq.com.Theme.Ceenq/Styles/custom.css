@@ -1,0 +1,73 @@
+.zone-featured-overlay {
+    position: absolute;
+    width: 100%;
+}
+
+div.zone-featured-overlay h1,
+div.zone-featured-overlay h2,
+div.zone-featured-overlay h3,
+div.zone-featured-overlay h4,
+div.zone-featured-overlay h5,
+div.zone-featured-overlay h6 {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+div.zone-featured-overlay h1,
+div.zone-featured-overlay h2 {
+    white-space: nowrap;
+}
+
+div.overlay-wrap {
+    padding-top: 50px;
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
+    div.overlay-wrap .well {
+        background: rgba(0, 0, 0, 0.5);
+        border: none;
+        width: 40%;
+        text-align: center;
+    }
+
+    div.overlay-wrap .submit-button {
+        padding-top: 30px;
+    }
+
+    div.overlay-wrap label {
+        margin-top: 10px;
+        white-space: nowrap;
+        font-family: "Shadows Into Light";
+        font-size: 1.8em;
+        color: #fff;
+    }
+
+@media only screen and (max-width : 1200px) {
+    div.overlay-wrap label {
+        font-size: 1.4em;
+    }
+}
+
+@media only screen and (max-width : 991px) {
+    div.overlay-wrap .well {
+        background: rgba(0, 0, 0, 0.3);
+        border: none;
+        width: 100%;
+        text-align: center;
+    }
+
+    div.overlay-wrap {
+        padding-top: 20px;
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+}
+
+@media only screen and (max-width : 768px) {
+    div.overlay-wrap form {
+        display:none;
+    }
+}
+
+

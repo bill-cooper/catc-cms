@@ -1,0 +1,37 @@
+<Placement>
+  <Place Parts_Title="-"/>
+  <Place Parts_Common_Body="-"/>
+  <Place Parts_Common_Metadata="-"/>
+  <Place Parts_Container_Contained="-"/>
+  <Place Fields_Common_Text="-"/>
+  <Place Fields_Input="-"/>
+  <Place Fields_Numeric="-"/>
+  <Place Fields_Link="-"/>
+  <Place Fields_Enumeration="-"/>
+  <Place Fields_Boolean="-"/>
+  <Place Fields_DateTime="-"/>
+  
+  
+  <Place Parts_Blogs_BlogPost_List="-"/>
+
+
+  
+    <Match DisplayType="Layout">
+        <Place Parts_Title="Content"
+               Parts_Common_Body="Content"
+               Parts_Common_Body_Summary="-"
+               Parts_Common_Metadata="Content"
+               Parts_Tags_ShowTags="Header:after.7"
+               Parts_Blogs_BlogPost_List="Content"
+               Parts_Container_Contained="Content"
+               Fields_Common_Text="Content"
+               Fields_Input="Content"
+               Fields_Text="Content"
+               Fields_Numeric="Content"
+               Fields_Link="Content"
+               Fields_Enumeration="Content"
+               Fields_Boolean="Content"
+               Fields_DateTime="Content"
+               />
+    </Match>
+</Placement>

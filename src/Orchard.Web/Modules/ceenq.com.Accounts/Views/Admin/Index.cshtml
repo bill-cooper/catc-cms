@@ -1,0 +1,65 @@
+@model AccountsIndexViewModel
+@using ceenq.com.Accounts.ViewModels;
+@using Orchard.Environment.Configuration
+@using Orchard.Utility.Extensions;
+@{
+    Script.Require("ShapesBase");
+
+    Layout.Title = T("Accounts").ToString();
+}
+
+@using (Html.BeginFormAntiForgeryPost())
+{
+    @Html.ValidationSummary();
+    <fieldset class="bulk-actions">
+        <label for="publishActions">@T("Actions:")</label>
+        <select id="Select1" name="accountActions">
+            <option value="1">@T("Delete")</option>
+        </select>
+        <button type="submit">@T("Apply")</button>
+    </fieldset>
+    <div class="manage">@Html.ActionLink("Create New Account", "Create", new { Area = "Contents", Id = "Account", ReturnUrl = Request.QueryString["ReturnUrl"] }, new { @class = "button primaryAction" })</div>
+
+    <fieldset>
+        <table class="items" summary="@T("This is a table of the accounts currently available for use in your application.")">
+            <colgroup>
+                <col id="Col1" />
+                <col id="Col2" />
+                <col id="Col3" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th scope="col"><input type="checkbox" class="check-all" /></th>
+                    <th scope="col">@T("Name")</th>
+                    <th scope="col">@T("Default Routing Server")</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            @foreach (var account in Model.Rows)
+            {
+                <tr>
+                    <td><input type="checkbox" value="true" name="@("Checkbox." + account.Id)" /></td>
+                    <td>@account.Name</td>
+                    <td>@account.DefaultRoutingServer</td>
+                    <td>
+                        @if (account.Tenant.State == TenantState.Running)
+                        {
+                            <a href="@Url.Action("Disable", new {name = account.Name, returnUrl = ViewContext.RequestContext.HttpContext.Request.ToUrlString()})" itemprop="UnsafeUrl">@T("Disable")</a>
+
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("Enable", new {name = account.Name, returnUrl = ViewContext.RequestContext.HttpContext.Request.ToUrlString() })" itemprop="UnsafeUrl">@T("Enable")</a>
+
+                        } |
+                        @Html.ItemEditLink(T("Edit").Text, @account.ContentItem)
+                        |
+                        <a href="@Url.Action("Index", "Application", new {accountName = account.Name })">@T("Applications")</a>
+                        |
+                        <a href="@Url.Action("Index", "RoutingServer", new {accountName = account.Name })">@T("Routing Servers")</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </fieldset>
+}

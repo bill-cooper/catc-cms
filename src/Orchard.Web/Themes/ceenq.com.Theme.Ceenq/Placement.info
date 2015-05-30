@@ -1,0 +1,7 @@
+<Placement>
+  <Match ContentType="BlogPost">
+    <Place Parts_Common_Metadata="Header:1"/>
+  </Match>
+  <Place Parts_Title="-"/>
+  <Place Parts_Common_Metadata="-"/>
+</Placement>

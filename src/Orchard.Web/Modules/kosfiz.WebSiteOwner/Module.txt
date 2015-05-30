@@ -1,0 +1,12 @@
+Name: kosfiz.WebSiteOwner
+AntiForgery: enabled
+Author: Konstantin Pankov
+Website: http://kosfiz.ru
+Version: 0.9
+OrchardVersion: 1.1
+Description: Module for manage verification codes (meta codes) of different webmaster tools: google webmaster tools, bing webmaster tools, yandex webmaster tools.
+Features:
+    kosfiz.WebSiteOwner:
+		Name: kosfiz.WebSiteOwner
+        Description: Module for manage verification codes (meta codes) of different webmaster tools: google webmaster tools, bing webmaster tools, yandex webmaster tools.
+		Category: SEO

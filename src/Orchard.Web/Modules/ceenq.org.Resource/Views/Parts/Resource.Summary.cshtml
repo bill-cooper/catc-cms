@@ -1,0 +1,8 @@
+﻿@using ceenq.org.Resource.Models
+@{
+    ResourcePart resourcePart = Model.ContentPart;
+}
+
+@T("Delivered On: ") @resourcePart.DeliveredUtc.Value.ToShortDateString()
+<br>
+@T("Passage: ") @resourcePart.CorrespondingTexts

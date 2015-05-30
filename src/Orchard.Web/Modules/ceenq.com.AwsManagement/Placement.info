@@ -1,0 +1,4 @@
+﻿<Placement>
+  <Place Parts_Account_AwsSettingsPart="Content:10"/>
+  <Place Parts_AwsDefaultSettings="Content:10"/>
+</Placement>

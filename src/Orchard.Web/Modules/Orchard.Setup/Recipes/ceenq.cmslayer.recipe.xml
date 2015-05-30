@@ -1,0 +1,55 @@
+﻿<?xml version="1.0"?>
+<Orchard>
+  <Recipe>
+    <Name>CmsLayer</Name>
+    <Description>A recipe providing only the core Orchard framework, with limited end-user functionality. This is useful for development scenarios.</Description>
+    <Author>The Orchard Team</Author>
+    <WebSite>http://orchardproject.net</WebSite>
+    <Tags>developer</Tags>
+    <Version>1.0</Version>
+  </Recipe>
+
+  <Feature
+           enable="
+           ,Orchard.Alias
+           ,Orchard.Autoroute
+           ,Orchard.jQuery
+           ,Orchard.ContentTypes
+           ,Orchard.Scripting
+           ,Orchard.Scripting.Lightweight
+           ,Orchard.Packaging
+           ,Orchard.OutputCache
+           ,Orchard.ContentPermissions
+           ,Orchard.ImportExport
+           ,Orchard.JobsQueue
+           ,Orchard.Email
+           ,Orchard.Layouts
+           ,Orchard.AuditTrail
+           ,TinyMce
+           
+           ,ceenq.com.Core
+           ,ceenq.com.AzureCloudStorage
+           ,ceenq.com.Layouts
+           ,ceenq.com.Theme.LayoutsAdmin
+           "/>
+
+
+  <Metadata>
+    <Types>
+      <Page ContentTypeSettings.Draftable="True" />    
+    </Types>
+    <Parts>
+      <BodyPart BodyPartSettings.FlavorDefault="html" />
+    </Parts>
+  </Metadata>
+
+  <Settings>
+    <SmtpSettingsPart Address="info@ceenq.com" Host="127.0.0.1" Port="25" EnableSsl="false" RequireCredentials="false" UserName="" Password=""/>
+  </Settings>
+
+  <Migration features="*" />
+  
+  <Command>
+    theme activate "ceenq.com.Theme.Layouts"
+  </Command>
+</Orchard>

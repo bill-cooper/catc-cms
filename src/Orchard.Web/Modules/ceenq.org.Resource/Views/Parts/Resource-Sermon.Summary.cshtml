@@ -1,0 +1,7 @@
+﻿@using ceenq.org.Resource.Models
+@{
+    Style.Require("ResourceStyle");
+    ResourcePart resourcePart = Model.ContentPart;
+}
+
+ @resourcePart.DeliveredUtc.Value.ToShortDateString()

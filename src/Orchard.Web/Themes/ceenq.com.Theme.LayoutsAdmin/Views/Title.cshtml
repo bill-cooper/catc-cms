@@ -1,0 +1,7 @@
+﻿@using Orchard.Localization;
+@using Orchard.Utility.Extensions;
+@using Orchard.Mvc.Html;
+@{
+    var title = (string)Model.Title.ToString();
+}
+<div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span>@Html.TitleForPage(title)</strong></div>

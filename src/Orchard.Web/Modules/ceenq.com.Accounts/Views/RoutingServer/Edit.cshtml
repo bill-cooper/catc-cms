@@ -1,0 +1,43 @@
+@model ConfigEditViewModel
+@using ceenq.com.RoutingServer.ViewModels;
+
+@{
+    Layout.Title = T("Edit Config File").ToString();
+    Script.Require("jQuery").AtHead();
+}
+
+@using (Html.BeginFormAntiForgeryPost())
+{
+    @Html.ValidationSummary();
+    <fieldset>
+        <label for="pageTitle">@T("Config File Name:")</label>
+        <input id="FullName" class="text" name="FullName" type="text" value="@Model.FullName" />
+    </fieldset>
+    <fieldset>
+        <button class="primaryAction" type="submit" name="submit.Regenerate" value="@T("Regenerate")">@T("Regenerate")</button>
+    </fieldset>
+    <fieldset>
+        <label>@T("Config File Body")</label>
+    </fieldset>
+    <div>
+        @Html.TextArea("Text", (string)Model.Text, 10, 80, new { })
+    </div>
+
+    <fieldset>
+        <button class="primaryAction" type="submit" name="submit.Save" value="@T("Save")">@T("Save")</button>
+        <button type="submit" name="submit.Delete" value="@T("Delete")" itemprop="RemoveUrl">@T("Delete")</button>
+    </fieldset>
+    <script type="text/javascript" language="javascript">
+        resizeIt = function () {
+            var str = $('#Text').val();
+            var cols = $('#Text').attr("cols");
+
+            var linecount = 0;
+            $(str.split("\n")).each(function (index, item) {
+                linecount += Math.ceil(item.length / cols); // take into account long lines
+            })
+            $('#Text').attr("rows", linecount + 1);
+        };
+        resizeIt(); //initial on load
+    </script>
+}

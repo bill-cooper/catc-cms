@@ -1,0 +1,120 @@
+﻿@model Vitus.GoogleCalendar.Models.GoogleCalendarPart
+@using Vitus.GoogleCalendar.Models;
+@using Orchard.Utility.Extensions;
+@using Orchard.Environment.Configuration
+
+<fieldset>
+    @Html.LabelFor(m => m.GoogleCalendarUrls, T("Google Calendar URLs"))
+    @Html.TextBoxFor(m => m.GoogleCalendarUrls, new { @class = "large text" })
+    @Html.ValidationMessageFor(m => m.GoogleCalendarUrls)
+    <span class="hint">@T("Comma separated list of URLs of Google Calendars in XML format.")</span>
+</fieldset>
+
+<fieldset>
+    @Html.LabelFor(m => m.GoogleCalendarClasses, T("Google Calendar Classes"))
+    @Html.TextBoxFor(m => m.GoogleCalendarClasses, new { @class = "textMedium" })
+    @Html.ValidationMessageFor(m => m.GoogleCalendarClasses)
+    <span class="hint">@T("Comma separated list of CSS classes to be added to events of the corresponding calendar.")</span>
+</fieldset>
+
+<fieldset>
+    <span class="checkbox-and-label">
+        @Html.CheckBoxFor(m => m.Theme)
+        <label for="@Html.FieldIdFor(m => m.Theme)" class="forcheckbox">@T("Use Theme")</label>
+    </span>
+    <span class="hint">@T("Enables/disables use of jQuery UI theming.")</span>
+</fieldset>
+
+<fieldset>
+    @Html.LabelFor(m => m.DefaultView, T("Default View"))
+    <select name="@Html.FieldNameFor(m => m.DefaultView)" id="@Html.FieldIdFor(m => m.DefaultView)">
+        @Html.SelectOption((byte)Model.DefaultView, (byte)FullCalendarDefaultView.Month, T("Month").ToString(), null)
+        @Html.SelectOption((byte)Model.DefaultView, (byte)FullCalendarDefaultView.BasicWeek, T("Basic Week").ToString(), null)
+        @Html.SelectOption((byte)Model.DefaultView, (byte)FullCalendarDefaultView.BasicDay, T("Basic Day").ToString(), null)
+        @Html.SelectOption((byte)Model.DefaultView, (byte)FullCalendarDefaultView.AgendaWeek, T("Agenda Week").ToString(), null)
+        @Html.SelectOption((byte)Model.DefaultView, (byte)FullCalendarDefaultView.AgendaDay, T("Agenda Day").ToString(), null)
+    </select>
+    <span class="hint">@T("The initial view when the calendar loads.")</span>
+</fieldset>
+
+<fieldset>
+    @Html.LabelFor(m => m.HeaderLeft, T("Header Left"))
+    @Html.TextBoxFor(m => m.HeaderLeft, new { @class = "small text" })
+    @Html.ValidationMessageFor(m => m.HeaderLeft)
+    @Html.LabelFor(m => m.HeaderCenter, T("Header Center"))
+    @Html.TextBoxFor(m => m.HeaderCenter, new { @class = "small text" })
+    @Html.ValidationMessageFor(m => m.HeaderCenter)
+    @Html.LabelFor(m => m.HeaderRight, T("Header Right"))
+    @Html.TextBoxFor(m => m.HeaderRight, new { @class = "small text" })
+    @Html.ValidationMessageFor(m => m.HeaderRight)
+    <span class="hint">@T("Determines content of the calendar header. <a href=\"http://arshaw.com/fullcalendar/docs/display/header/\" target=\"_blank\">More</a>")</span>
+</fieldset>
+
+<fieldset>
+    @Html.LabelFor(m => m.WeekMode, T("Week Mode"))
+    <select name="@Html.FieldNameFor(m => m.WeekMode)" id="@Html.FieldIdFor(m => m.WeekMode)">
+        @Html.SelectOption((byte)Model.WeekMode, (byte)FullCalendarWeekMode.Fixed, T("Fixed").ToString(), null)
+        @Html.SelectOption((byte)Model.WeekMode, (byte)FullCalendarWeekMode.Liquid, T("Liquid").ToString(), null)
+        @Html.SelectOption((byte)Model.WeekMode, (byte)FullCalendarWeekMode.Variable, T("Variable").ToString(), null)
+    </select>
+    <span class="hint">@T("Determines the number of weeks displayed in a month view. Also determines each week's height. <a href=\"http://arshaw.com/fullcalendar/docs/display/weekMode/\" target=\"_blank\">More</a>")</span>
+</fieldset>
+
+<fieldset>
+    <span class="checkbox-and-label">
+        @Html.CheckBoxFor(m => m.Weekends)
+        <label for="@Html.FieldIdFor(m => m.Weekends)" class="forcheckbox">@T("Show Weekends")</label>
+    </span>
+    <span class="hint">@T("Whether to include Saturday/Sunday columns in any of the calendar views.")</span>
+</fieldset>
+
+<fieldset>
+    <span class="checkbox-and-label">
+        @Html.CheckBoxFor(m => m.WeekNumbers)
+        <label for="@Html.FieldIdFor(m => m.WeekNumbers)" class="forcheckbox">@T("Show Week Numbers")</label>
+    </span>
+    <span class="hint">@T("Determines if week numbers should be displayed on the calendar.")</span>
+</fieldset>
+
+<fieldset>
+    <span class="checkbox-and-label">
+        @Html.CheckBoxFor(m => m.AllDaySlot)
+        <label for="@Html.FieldIdFor(m => m.AllDaySlot)" class="forcheckbox">@T("Show All-Day Slot")</label>
+    </span>
+    <span class="hint">@T("Determines if the \"all-day\" slot is displayed at the top of the calendar.")</span>
+</fieldset>
+
+<fieldset>
+    @Html.LabelFor(m => m.SlotMinutes, T("Slot Minutes"))
+    @Html.TextBoxFor(m => m.SlotMinutes, new { @class = "small text" })
+    @Html.ValidationMessageFor(m => m.SlotMinutes)
+    <span class="hint">@T("The frequency for displaying time slots, in minutes.")</span>
+</fieldset>
+
+<fieldset>
+    @Html.LabelFor(m => m.DefaultEventMinutes, T("Default Event Minutes"))
+    @Html.TextBoxFor(m => m.DefaultEventMinutes, new { @class = "small text" })
+    @Html.ValidationMessageFor(m => m.DefaultEventMinutes)
+    <span class="hint">@T("Determines the length (in minutes) an event appears to be when it has an unspecified end date.")</span>
+</fieldset>
+
+<fieldset>
+    @Html.LabelFor(m => m.FirstHour, T("First Hour"))
+    @Html.TextBoxFor(m => m.FirstHour, new { @class = "small text" })
+    @Html.ValidationMessageFor(m => m.FirstHour)
+    <span class="hint">@T("Determines the first hour that will be visible in the scroll pane.")</span>
+</fieldset>
+
+<fieldset>
+    @Html.LabelFor(m => m.MinTime, T("Min Time"))
+    @Html.TextBoxFor(m => m.MinTime, new { @class = "small text" })
+    @Html.ValidationMessageFor(m => m.MinTime)
+    <span class="hint">@T("Determines the first hour that will be displayed, even when the scrollbars have been scrolled all the way up.")</span>
+</fieldset>
+
+<fieldset>
+    @Html.LabelFor(m => m.MaxTime, T("Max Time"))
+    @Html.TextBoxFor(m => m.MaxTime, new { @class = "small text" })
+    @Html.ValidationMessageFor(m => m.MaxTime)
+    <span class="hint">@T("Determines the last hour (exclusively) that will be displayed, even when the scrollbars have been scrolled all the way down.")</span>
+</fieldset>

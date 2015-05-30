@@ -1,0 +1,6 @@
+<Placement>
+  <Place Parts_DashboardSettings_Edit="Content:10"/>
+  <Place Parts_LiveTiles_Menu="Content"/>
+  <Place Menu_LiveTiles="Content"/>
+  <Place MenuItemLink_LiveTiles="Content"/>
+</Placement>

@@ -1,0 +1,20 @@
+﻿Name: ceenq.com.AzureCloudStorage
+AntiForgery: enabled
+Author: Ceenq Software Solutions
+Website: http://ceenq.com
+Version: 1.0
+OrchardVersion: 1.8
+Description: This module allows connecting to a shared cloud storage location to store content
+Features:
+    ceenq.com.AzureCloudStorage:
+        Description: This module allows connecting to a shared cloud storage location to store content
+		Category: Cloud Storage
+        Dependencies: ceenq.com.Core
+	ceenq.com.AzureCloudStorageManagement:
+        Description: This module provides a way to create new cloud storage instances
+		Category: Cloud Storage
+        Dependencies: ceenq.com.Core, ceenq.com.AzureCloudStorage
+	ceenq.com.CloudAssetManagement:
+        Description: This module provides application asset management
+		Category: Cloud Storage
+        Dependencies: ceenq.com.Core, ceenq.com.AzureCloudStorage

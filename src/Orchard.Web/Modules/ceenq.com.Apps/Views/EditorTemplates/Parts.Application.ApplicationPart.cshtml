@@ -1,0 +1,37 @@
+﻿@model ceenq.com.Apps.Models.ApplicationPart
+
+<div>
+    @Html.LabelFor(m => m.Name, T("Application Name"))
+    @Html.TextBoxFor(m => m.Name, new { @class = "text medium" })
+    <span class="hint">@T("The name of the application.")</span>
+</div>
+<div>
+    @Html.LabelFor(m => m.AuthenticationRedirect, T("Authentication Redirect Location"))
+    @Html.TextBoxFor(m => m.AuthenticationRedirect, new { @class = "text medium" })
+    <span class="hint">@T("When auth is required, forward to this location (e.g. /login.html)")</span>
+</div>
+<div>
+    @Html.LabelFor(m => m.ResetPassword, T("Reset Password Location"))
+    @Html.TextBoxFor(m => m.ResetPassword, new { @class = "text medium" })
+    <span class="hint">@T("The page that is for resetting passwords (e.g. /reset.html)")</span>
+</div>
+<div>
+    @Html.LabelFor(m => m.AccountVerification, T("Account Verification Location"))
+    @Html.TextBoxFor(m => m.AccountVerification, new { @class = "text medium" })
+    <span class="hint">@T("The page that is for account verification (e.g. /verify.html)")</span>
+</div>
+<div>
+    @Html.LabelFor(m => m.Domain, T("Custom Domain"))
+    @Html.TextBoxFor(m => m.Domain, new { @class = "text medium" })
+    <span class="hint">@T("This is used to set a custom domain name other than appname.accountname.cnq.io")</span>
+</div>
+<div>
+    @Html.LabelFor(m => m.SuppressDefaultEndpoint, T("Suppress Default Endpoint"))
+    @Html.CheckBoxFor(m => m.SuppressDefaultEndpoint)
+    <span class="hint">@T("Prevents appname.accountname.cnq.io endpoint from being added as a valid domain to the nginx config file")</span>
+</div>
+<div>
+    @Html.LabelFor(m => m.TransportSecurity, T("Enable Transport Security"))
+    @Html.CheckBoxFor(m => m.TransportSecurity)
+    <span class="hint">@T("To enable SSL")</span>
+</div>

@@ -1,0 +1,8 @@
+﻿@using Orchard.Localization;
+@using Orchard.Utility.Extensions;
+@using Orchard.Mvc.Html;
+@{
+    var title = (string)Model.Title.ToString();
+    var titleIconClass = "glyphicon-" + title.HtmlClassify();
+}
+<h1><span class="glyphicon glyphicon-title @titleIconClass"></span>@Html.TitleForPage(title)</h1>

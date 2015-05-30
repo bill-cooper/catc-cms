@@ -1,0 +1,11 @@
+﻿Name: ceenq.com.LiveTiles
+AntiForgery: enabled
+Author: Ceenq Software Solutions
+Website: http://ceenq.com
+Version: 1.7.2
+OrchardVersion: 1.7.2
+Dependencies: ceenq.com.Metro
+Description: Provides windows live tile functionality
+Features:
+    ceenq.com.LiveTiles:
+        Description: Provides windows live tile functionality

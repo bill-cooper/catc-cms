@@ -1,0 +1,20 @@
+﻿@{
+    Style.Require("FontAwesome");
+    //Script.Require("MetroJs");
+    //Script.Require("LiveTiles");
+    Style.Require("MetroStyle");
+    //Style.Require("LiveTilesStyle");
+
+}
+
+<div id="fliptilecontainer" class="metro">
+    <ul class="flip-list" data-mode="flip-list" data-direction="horizontal" data-speed="500" data-delay="0">
+
+        @foreach (var item in Model.Items)
+        {
+            @Display(New.MenuItemLink_LiveTiles(item.Item))
+        }
+
+    </ul>
+</div>
+

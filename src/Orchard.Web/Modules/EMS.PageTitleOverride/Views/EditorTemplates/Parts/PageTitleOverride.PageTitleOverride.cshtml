@@ -1,0 +1,8 @@
+﻿@model EMS.PageTitleOverride.Models.PageTitleOverridePart
+@using Orchard.ContentManagement;
+
+<fieldset>
+    @Html.LabelFor(m => m.PageTitle, T("Page Title Override"))
+    @Html.TextBoxFor(m => m.PageTitle, new { @class = "large text" })<br />
+    <span class="hint">Leave empty to use the default page title.</span>
+</fieldset>

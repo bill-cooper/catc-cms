@@ -1,0 +1,10 @@
+﻿Name: ceenq.com.Core
+AntiForgery: enabled
+Author: Ceenq Software Solutions
+Website: http://ceenq.com
+Version: 1.0
+OrchardVersion: 1.7
+Description: Core libraries used by other ceenq modules.
+Features:
+    ceenq.com.Core:
+        Description: Core libraries used by other ceenq modules.

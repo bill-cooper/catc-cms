@@ -1,0 +1,14 @@
+﻿@model EMS.PageTitleOverride.Models.PageTitleOverrideSettingsPart
+@using Orchard.ContentManagement;
+
+<fieldset>
+    <legend>@T("Page Title Override Settings")</legend>
+    <div>
+        @Html.EditorFor(m => m.IsPageTitleSiteNameLast) 
+        <label class="forcheckbox" for="@Html.FieldIdFor(m => m.IsPageTitleSiteNameLast)">@T("Page Title Should Have Site Name Last")</label>
+    </div>
+    <div>
+        @Html.EditorFor(m => m.IsPageTitleHideSiteName) 
+        <label class="forcheckbox" for="@Html.FieldIdFor(m => m.IsPageTitleHideSiteName)">@T("Page Title Should Not Include Site Name")</label>
+    </div>
+</fieldset>

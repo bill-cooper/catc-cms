@@ -1,0 +1,28 @@
+﻿@using Orchard.ContentManagement
+@using Orchard.Core.Common.Models
+@using Orchard.Core.Title.Models
+@using Orchard.MediaLibrary.Models;
+@{
+    ContentItem contentItem = Model.ContentItem;
+    var title = (TitlePart)contentItem.Get(typeof(TitlePart));
+    var body = (BodyPart)contentItem.Get(typeof(BodyPart));
+    ContentItem featuredContentItem = null;
+    string featuredSliderImageUrl = "";
+    try
+    {
+        featuredContentItem = (ContentItem)Model.ContentItem.FeaturedItem.FeaturedContentItem.ContentItems[0];
+        featuredSliderImageUrl = Model.ContentItem.FeaturedItem.FeaturedSliderImage.MediaParts[0].MediaUrl;
+    }
+    catch { }
+
+}
+
+<a href="@Url.ItemDisplayUrl(featuredContentItem)">
+    <img src="@featuredSliderImageUrl" alt="@title.Title">
+</a>
+<div class="carousel-caption">
+    <p>@(new HtmlString(body.Text))</p>
+    <p>
+        <a href="@Url.ItemDisplayUrl(featuredContentItem)" class="visible-desktop">More »</a>
+    </p>
+</div>

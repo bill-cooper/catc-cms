@@ -1,0 +1,36 @@
+﻿@model ceenq.com.AssetImport.ViewModels.ImportViewModel
+@{
+
+    Layout.Title = T("Bulk Asset Upload").ToString();
+}
+
+@using (Html.BeginForm("Import", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary()
+    <fieldset>
+        <label for="pageTitle">@T("Choose a zip file<span> - zip up files that you wish to bulk upload</span>")</label>
+        <input id="MediaItemPath" name="MediaItemPath" type="file" value="@T("Browse")" size="64" />
+        <span class="hint">@T("After your files have been uploaded, you can edit the titles and descriptions.")</span>
+    </fieldset>
+    <p>OR</p>
+    <fieldset>
+        @Html.LabelFor(m => m.ImportUrl, T("Import a zip file from the web"))
+        @Html.TextBoxFor(m => m.ImportUrl, new { @class = "text large" })
+        <span class="hint">@T("Providers like GitHub and BitBucket offer zip download links for public projects.")</span>
+        <span class="hint">@T("Just provide the Url to the link to import the project.")</span>
+    </fieldset>
+    <fieldset>
+        @Html.LabelFor(m => m.Subdirectory, T("Import to this sub directory"))
+        @Html.TextBoxFor(m => m.Subdirectory)
+        <span class="hint">@T("ex. /some-directory  will be imported to this directory for the selected account")</span>
+    </fieldset>
+        <fieldset>
+        @Html.LabelFor(m => m.OverwriteExisting, T("Overwrite existing files if found"))
+        @Html.CheckBoxFor(m => m.OverwriteExisting)
+        <span class="hint">@T("Overwrites existing files if found, otherwise they will be skipped")</span>
+    </fieldset>
+    <fieldset>
+        <button class="primaryAction" type="submit">@T("Upload")</button>
+        @Html.AntiForgeryTokenOrchard()
+    </fieldset>
+}

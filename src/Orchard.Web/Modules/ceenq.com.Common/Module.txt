@@ -1,0 +1,11 @@
+﻿Name: ceenq.com.Common
+AntiForgery: enabled
+Author: Ceenq Software Solutions
+Website: http://ceenq.com
+Version: 1.0
+OrchardVersion: 1.7
+Description: Base modules and functionality for ceenq software offerings
+Dependencies: Orchard.Users
+Features:
+    ceenq.com.Common:
+        Description: Description for feature ceenq.com.Common.

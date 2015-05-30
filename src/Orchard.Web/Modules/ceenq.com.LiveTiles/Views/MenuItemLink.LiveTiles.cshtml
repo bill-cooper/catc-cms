@@ -1,0 +1,27 @@
+﻿@{
+    var icon = "icon-arrow-right";
+    if (Model.Href.Contains("Create"))
+    {
+        icon = "icon-plus";
+    }
+    
+}
+
+<a href="@Model.Href">
+    <div class="tile bg-cyan">
+        <div class="tile-content icon">
+            <i class="icon icon-file-text"></i>
+        </div>
+        <div class="tile-status">
+            <span class="name">@Model.Text</span>
+        </div>
+        <div class="brand">
+            <div class="badge bg-cyan"><i class="icon @icon"></i></div>
+        </div>
+    </div>
+</a>
+
+
+
+
+

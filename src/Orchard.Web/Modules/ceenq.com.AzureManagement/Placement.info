@@ -1,0 +1,4 @@
+﻿<Placement>
+  <Place Parts_Account_AzureSettingsPart="Content:10"/>
+  <Place Parts_AzureDefaultSettings="Content:10"/>
+</Placement>

@@ -1,0 +1,8 @@
+﻿@using Orchard.Fields.Settings;
+@using Orchard.Utility.Extensions;
+@{
+    string value = (string)Model.ContentField.Value;
+    if (!string.IsNullOrEmpty(value)) {
+    <p class="text-field"> @value</p>
+    }
+}

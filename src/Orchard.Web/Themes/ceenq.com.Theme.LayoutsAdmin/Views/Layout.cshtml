@@ -1,0 +1,79 @@
+﻿@model dynamic
+@using NHibernate.Criterion
+@using Orchard.Security;
+@using Orchard.DisplayManagement.Descriptors;
+@using Orchard.UI.Resources;
+@using Orchard;
+@using Orchard.ContentManagement;
+
+@{
+    Style.Include("site.css");
+    Style.Include("layouteditoroverride.css");
+    if (!Request.Url.AbsolutePath.ToLower().Contains("layouts/layout/edit"))
+    {
+        Style.Include("/styles/main.css");
+    }
+    Script.Require("jQuery").AtFoot();
+    Script.Require("ShapesBase").AtFoot();
+    Script.Include("admin.js").AtFoot();
+    Script.Include("iframeResizer.contentWindow.min.js").AtFoot();
+    Style.Include("theme.css");
+
+    /* Some useful shortcuts or settings
+    ***************************************************************/
+
+    Func<dynamic, dynamic> Zone = x => Display(x); // Zone as an alias for Display to help make it obvious when we're displaying zones
+
+    /* Inserting some ad hoc shapes
+    ***************************************************************/
+
+
+    var title = (string)Model.Title.ToString();
+}
+<div class=" page page-form">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> @Html.TitleForPage(title)</strong></div>
+
+
+                <div id="layout-main" class="panel-body">
+                    <div id="main" role="main">
+                        @if (Model.Messages != null)
+                        {
+                            <div id="messages">
+                                @Zone(Model.Messages)
+                            </div>
+                        }
+
+                        @if (Model.BeforeContent != null)
+                        {
+                            <div id="before-content">
+                                @Zone(Model.BeforeContent)
+                            </div>
+                        }
+
+                        @if (Model.Content != null)
+                        {
+                            <div>
+                                @Zone(Model.Content)
+                            </div>
+                        }
+
+                        @if (Model.AfterContent != null)
+                        {
+                            <div id="after-content">
+                                @Zone(Model.AfterContent)
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+    var confirmRemoveMessage = '@T("Are you sure you want to remove this element ?")';
+//]]>
+</script>

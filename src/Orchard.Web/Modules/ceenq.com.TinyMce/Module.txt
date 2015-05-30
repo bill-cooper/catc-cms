@@ -1,0 +1,11 @@
+﻿Name: ceenq.com.TinyMce
+AntiForgery: enabled
+Author: Ceenq Software Solutions
+Website: http://ceenq.com
+Version: 1.0
+OrchardVersion: 1.7
+Description: Ceenq Software Solutions implementation of TinyMce.
+Dependencies: Orchard.jQuery, Orchard.MediaLibrary
+Features:
+    ceenq.com.TinyMce:
+        Description: Ceenq Software Solutions implementation of TinyMce.

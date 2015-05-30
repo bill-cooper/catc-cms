@@ -1,0 +1,42 @@
+@model ceenq.com.Accounts.ViewModels.AppConfigViewModel
+
+@{
+    Layout.Title = T("App Config File").ToString();
+    Script.Require("jQuery").AtHead();
+}
+
+@using (Html.BeginFormAntiForgeryPost())
+{
+    @Html.ValidationSummary();
+    <fieldset>
+        <div>
+            @Html.LabelFor(m => m.GeneratedText, T("Dynamically Generated based on current app"))
+            @Html.TextAreaFor(m => m.GeneratedText, new { @class = "text large", @id="generated-config" })
+        </div>
+        <div>
+            <div id="config-error" class="message message-Error" style="display: none;">@T("The configuration file on the server does not match the generated config")</div>
+            @Html.LabelFor(m => m.ServerText, T("Version currently on the server"))
+            @Html.TextAreaFor(m => m.ServerText, new { @class = "text large", @id = "server-config" })
+        </div>
+    </fieldset>
+    <fieldset>
+        <button class="primaryAction" type="submit">@T("Save")</button>
+    </fieldset>
+}
+<script type="text/javascript" language="javascript">
+    resizeTextAreas = function () {
+        $('textarea').each(function () {
+            var str = $(this).val();
+            var linecount = 0;
+            $(str.split("\n")).each(function (index, item) {
+                linecount++;
+            });
+            $(this).attr("rows", linecount + 10);
+        });
+
+    };
+    resizeTextAreas(); //initial on load
+
+    if ($('#generated-config').val() != $('#server-config').val())
+        $('#config-error').show();
+</script>

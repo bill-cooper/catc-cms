@@ -1,0 +1,30 @@
+﻿@using Orchard
+@using Orchard.UI.Resources
+@using ceenq.com.Theme.Admin.Services
+@{
+    var adminThemeSettings = WorkContext.Resolve<IAdminThemeSettingsService>().GetServiceSettings();
+
+    var productCssUrl = String.IsNullOrWhiteSpace(adminThemeSettings.ProductCssUrl) ? Href(Html.ThemePath(WorkContext.CurrentTheme, "/Styles/product.css")) : adminThemeSettings.ProductCssUrl;
+    if (productCssUrl.StartsWith("~/"))
+    {
+        productCssUrl = Url.Content(productCssUrl);
+    }
+    Style.Include(productCssUrl);
+    
+    var logoUrl = String.IsNullOrWhiteSpace(adminThemeSettings.LogoUrl) ? Href(Html.ThemePath(WorkContext.CurrentTheme,"/Styles/images/logo.png")) : adminThemeSettings.LogoUrl;
+    if (logoUrl.StartsWith("~/"))
+    {
+        logoUrl = Url.Content(logoUrl);
+    }
+    var brand = adminThemeSettings.Brand;
+    var homeLink = Url.Action("Index", new { Area = "", Controller = "Home" });
+}
+
+
+<div class="navbar-header">
+    <a class="navbar-brand" href="@homeLink">
+        <div class="brand-logo" style="@(String.IsNullOrWhiteSpace(logoUrl) ? "" : "background:url(" + logoUrl + ") no-repeat;");background-position: center center;"></div>
+
+        <div class="brand-text">@brand</div>
+    </a>
+</div>

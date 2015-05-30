@@ -1,0 +1,8 @@
+﻿<Placement>
+  <Place Parts_GoogleCalendar="Content:5"/>
+  <Place Parts_GoogleCalendar_Edit="Content:5"/>
+  
+  <Match DisplayType="Detail" ContentType="GoogleCalendarPage">
+    <Place Parts_Common_Metadata="-" />
+  </Match>
+</Placement>

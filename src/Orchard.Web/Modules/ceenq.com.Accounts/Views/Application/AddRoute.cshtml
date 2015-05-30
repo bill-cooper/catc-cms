@@ -1,0 +1,45 @@
+@model ceenq.com.Accounts.ViewModels.RouteViewModel
+
+@{ Layout.Title = T("Add Route").ToString(); }
+
+@using (Html.BeginFormAntiForgeryPost())
+{
+    @Html.ValidationSummary();
+    <fieldset>
+        <div>
+            @Html.LabelFor(m => m.RequestPattern, T("Request Pattern"))
+            @Html.TextBoxFor(m => m.RequestPattern, new { @class = "text medium" })
+            <span class="hint">@T("The request pattern")</span>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.PassTo, T("Pass To"))
+            @Html.TextBoxFor(m => m.PassTo, new { @class = "text medium" })
+            <span class="hint">@T("Proxy pass to this location")</span>
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.RouteOrder, T("Order"))
+            @Html.TextBoxFor(m => m.RouteOrder, new { @class = "text small" })
+            <span class="hint">@T("Order in which the route rules will be applied")</span>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.RequireAuthentication, T("Require Authentication"))
+            @Html.CheckBoxFor(m => m.RequireAuthentication)
+            <span class="hint">@T("Requests to this route require authentication")</span>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.RequireAuthentication, T("Caching Enabled"))
+            @Html.CheckBoxFor(m => m.CachingEnabled)
+            <span class="hint">@T("Requests to this route are cached on the routing server")</span>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.Rules, T("Rules"))
+            @Html.TextBoxFor(m => m.Rules, new { @class = "text medium" })
+            <span class="hint">@T("Routing rules")</span>
+        </div>
+        <input type="hidden" value="@Model.Id" name="Id" />
+    </fieldset>
+    <fieldset>
+        <button class="primaryAction" type="submit">@T("Save")</button>
+    </fieldset>
+}

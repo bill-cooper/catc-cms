@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CB322D04-2660-483A-BDBF-03F2B87FF472}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ceenq.com.Tests</RootNamespace>
+    <AssemblyName>ceenq.com.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\..\lib\autofac\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Web">
+      <HintPath>..\..\lib\autofac\Autofac.Integration.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core">
+      <HintPath>..\..\lib\castle-windsor\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentNHibernate">
+      <HintPath>..\..\lib\nhibernate\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq">
+      <HintPath>..\..\lib\moq\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\..\lib\nhibernate\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\lib\nunit\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Http, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\aspnetwebapi\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\aspnetmvc\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppRoutingServer\ConfigEventHandlers\ApiLocationBlockCreationHandlerTests.cs" />
+    <Compile Include="AppRoutingServer\ConfigEventHandlers\DefaultLocationBlockCreationHandlerTests.cs" />
+    <Compile Include="AppRoutingServer\ConfigEventHandlers\LocationBlockAdjustMatchPatternHandlerTests.cs" />
+    <Compile Include="AppRoutingServer\ConfigEventHandlers\LocationBlockProxyRedirectFinalizeHandlerTests.cs" />
+    <Compile Include="AppRoutingServer\ConfigEventHandlers\LocationBlockPassToConfigurationHandlerTests.cs" />
+    <Compile Include="AppRoutingServer\ConfigEventHandlers\LocationBlockAppNameConfigurationHandlerTests.cs" />
+    <Compile Include="AppRoutingServer\ConfigEventHandlers\LocationBlockHostHeaderConfigurationHandlerTests.cs" />
+    <Compile Include="AppRoutingServer\ConfigEventHandlers\LocationBlockMaxBodySizeConfigurationHandlerTests.cs" />
+    <Compile Include="AppRoutingServer\ConfigEventHandlers\LocationBlockResolverConfigurationHandlerTests.cs" />
+    <Compile Include="AppRoutingServer\ConfigEventHandlers\LocationBlockRouteRuleHeadersConfigurationHandlerTests.cs" />
+    <Compile Include="AppRoutingServer\ConfigEventHandlers\PrimaryServerBlockCreationHandlerTests.cs" />
+    <Compile Include="AppRoutingServer\ConfigEventHandlers\RedirectToNonWwwServerBlockCreationHandlerTests.cs" />
+    <Compile Include="AppRoutingServer\ConfigEventHandlers\RedirectToWwwServerBlockCreationHandlerTests.cs" />
+    <Compile Include="AppRoutingServer\ConfigEventHandlers\RouteBasedLocationBlockCreationHandlerTests.cs" />
+    <Compile Include="AppRoutingServer\NginxConfigManagerTests.cs" />
+    <Compile Include="AppRoutingServer\NginxConfigSerializerTests.cs" />
+    <Compile Include="AzureManagement\ComputeManagementTests.cs" />
+    <Compile Include="FakeLogger.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Orchard.Web\Core\Orchard.Core.csproj">
+      <Project>{9916839c-39fc-4ceb-a5af-89ca7e87119f}</Project>
+      <Name>Orchard.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Orchard.Web\Modules\ceenq.com.AppRoutingServer\ceenq.com.AppRoutingServer.csproj">
+      <Project>{846f2c03-f426-454d-9d44-1a42fa8ca1d0}</Project>
+      <Name>ceenq.com.AppRoutingServer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Orchard.Web\Modules\ceenq.com.Core\ceenq.com.Core.csproj">
+      <Project>{6e1df577-7b1f-4de4-aa87-e55e71f47260}</Project>
+      <Name>ceenq.com.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Orchard.Web\Modules\ceenq.com.RoutingServer\ceenq.com.RoutingServer.csproj">
+      <Project>{4d56e59e-67f9-4092-869f-c05f261f4811}</Project>
+      <Name>ceenq.com.RoutingServer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Orchard.Web\Modules\Orchard.Autoroute\Orchard.Autoroute.csproj">
+      <Project>{66FCCD76-2761-47E3-8D11-B45D0001DDAA}</Project>
+      <Name>Orchard.Autoroute</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Orchard\Orchard.Framework.csproj">
+      <Project>{2d1d92bb-4555-4cbe-8d0e-63563d6ce4c6}</Project>
+      <Name>Orchard.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

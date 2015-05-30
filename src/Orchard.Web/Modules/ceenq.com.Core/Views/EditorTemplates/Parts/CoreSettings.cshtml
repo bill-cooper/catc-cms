@@ -1,0 +1,19 @@
+﻿@model ceenq.com.Core.Models.CoreSettingsPart
+
+
+<fieldset>
+    <legend>@T("Core Settings")</legend>
+
+    <div>
+        <label for="@Html.FieldIdFor(m => m.AccountDomain)">@T("Account Domain")</label>
+        @Html.EditorFor(m => m.AccountDomain)
+        @Html.ValidationMessage("AccountDomain", "*")
+        <span class="hint">@T("This is the domain on which applications are hosted.  ex. cnq.io")</span>
+    </div>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.ParentTenant)">@T("Parent Tenant")</label>
+        @Html.EditorFor(m => m.ParentTenant)
+        @Html.ValidationMessage("ParentTenant", "*")
+        <span class="hint">@T("This is the name of the tenant which acts as the core account management tenant")</span>
+    </div>
+</fieldset>

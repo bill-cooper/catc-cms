@@ -1,0 +1,15 @@
+
+@{
+    Layout.Title = T("Provision a new Routing Server").ToString();
+}
+
+
+
+@using (Html.BeginFormAntiForgeryPost())
+{
+    @Html.ValidationSummary();
+    <span class="hint">@T("This may take several minutes")</span>
+    <fieldset>
+        <button class="primaryAction" type="submit">@T("Provision")</button>
+    </fieldset>
+}

@@ -1,0 +1,7 @@
+@model ceenq.com.Apps.Models.ApplicationPart
+
+<fieldset>
+    <label for="pageTitle">@T("Application Name:")</label>
+    <span>@Html.TextBoxFor(m => m.Name, new { @class = "text" })</span>
+    <span class="hint">@T("Application's Name")</span>
+</fieldset>

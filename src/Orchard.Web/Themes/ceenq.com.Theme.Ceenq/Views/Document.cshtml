@@ -1,0 +1,90 @@
+﻿@using Orchard.Mvc.Html;
+@using Orchard.UI.Resources;
+@{
+    RegisterLink(new LinkEntry { Type = "image/x-icon", Rel = "shortcut icon", Href = Url.Content("~/modules/orchard.themes/Content/orchard.ico") });
+
+    string title = Convert.ToString(Model.Title);
+    string siteName = Convert.ToString(WorkContext.CurrentSite.SiteName);
+}
+<!DOCTYPE html>
+<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html>
+ <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <title>@Html.Title(title, siteName)</title>
+    <meta name="keywords" content="HTML5 Template" />
+    <meta name="description" content="Porto - Responsive HTML5 Template">
+    <meta name="author" content="Crivos.com">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
+    
+    <link rel="stylesheet" href="@Href(Html.ThemePath(WorkContext.CurrentTheme, "/styles/vendor/flexslider/flexslider.css"))" media="screen" />
+    <link rel="stylesheet" href="@Href(Html.ThemePath(WorkContext.CurrentTheme, "/styles/vendor/magnific-popup/magnific-popup.css"))" media="screen" />
+
+    <link rel="stylesheet" href="@Href(Html.ThemePath(WorkContext.CurrentTheme, "/styles/vendor/rs-plugin/css/settings.css"))" media="screen" />
+    <link rel="stylesheet" href="@Href(Html.ThemePath(WorkContext.CurrentTheme, "/styles/vendor/circle-flip-slideshow/css/component.css"))" media="screen" />
+
+    <!--[if IE]>
+        <link rel="stylesheet" href="@Href(Html.ThemePath(WorkContext.CurrentTheme, "/styles/ie.css"))" />
+    <![endif]-->
+    <!--[if lte IE 8]>
+        <script src="@Href(Html.ThemePath(WorkContext.CurrentTheme, "/scripts/vendor/respond.js"))" />
+    <![endif]-->
+
+    @{
+        Style.Include("bootstrap.css");
+        Style.Include("fonts/font-awesome/css/font-awesome.css");
+        Style.Include("theme.css");
+        Style.Include("theme-elements.css");
+        Style.Include("theme-animate.css");
+        Style.Include("custom.css");
+        Style.Include("skins/blue.css");
+        Style.Include("theme-responsive.css");
+        Script.Include("vendor/modernizr.js").AtHead();
+        Script.Include("vendor/jquery.js");
+        Script.Include("plugins.js");
+        Script.Include("vendor/jquery.easing.js");
+        Script.Include("vendor/jquery.appear.js");
+        Script.Include("vendor/jquery.cookie.js");
+        Script.Include("vendor/bootstrap.js");
+        Script.Include("vendor/rs-plugin/js/jquery.themepunch.plugins.min.js");
+        Script.Include("vendor/rs-plugin/js/jquery.themepunch.revolution.min.js");
+        Script.Include("vendor/flexslider/jquery.flexslider.js");
+        Script.Include("vendor/circle-flip-slideshow/js/jquery.flipshow.js");
+        Script.Include("vendor/magnific-popup/magnific-popup.js");
+        Script.Include("vendor/jquery.validate.js");
+        Script.Include("views/view.home.js");
+        Script.Include("theme.js");
+        Script.Include("custom.js");
+    }
+    @Display(Model.Head)
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/apple-touch-icon-144x144.png">
+
+    <!-- Facebook OpenGraph Tags - Go to http://developers.facebook.com/ for more information.
+    <meta property="og:title" content="Porto Website Template."/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="http://www.crivos.com/themes/porto"/>
+    <meta property="og:image" content="http://www.crivos.com/themes/porto/"/>
+    <meta property="og:site_name" content="Porto"/>
+    <meta property="fb:app_id" content=""/>
+    <meta property="og:description" content="Porto - Responsive HTML5 Template"/>
+    -->
+
+    <script>(function (d) { d.className = "dyn" + d.className.substring(6, d.className.length); })(document.documentElement);</script>
+</head> 
+<body>
+    @Display(Model.Body)
+    @Display(Model.Tail)
+</body>
+</html>

@@ -1,0 +1,5 @@
+Name: Content Services Theme
+Author: Ceenq Software Solutions
+Website: http://www.ceenq.com
+Description: Ceenq Software Solutions content services theme
+Version: 1.0

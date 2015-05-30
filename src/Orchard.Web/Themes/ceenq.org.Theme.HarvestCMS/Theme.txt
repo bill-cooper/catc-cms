@@ -1,0 +1,8 @@
+Name: HarvestCMS Website
+Author: Ceenq Software Solutions
+Website: http://www.harvestCMS.org
+Description: HarvestCMS webiste created by Ceenq Software Solutions
+Version: 1.0
+BaseTheme: Bootstrap
+# todo: provide tags
+# Tags: Classic, Serif

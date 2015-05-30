@@ -1,0 +1,20 @@
+﻿<h1>@Html.TitleForPage(T("Create new ownership verification code").ToString())</h1>
+<div class="add-code">
+@Html.ActionLink("Back to list", "Index")
+</div>
+@using (Html.BeginFormAntiForgeryPost())
+{
+    @Html.ValidationSummary()
+    <fieldset>
+    <p><label for="Title">@T("Title")</label>
+    <input id="Title" name="Title" type="text" />
+    </p>
+    <p><label for="MetaName">@T("Name")</label>
+    <input id="MetaName" name="MetaName" type="text" />
+    </p>
+    <p><label for="MetaContext">@T("Content")</label>
+    <input id="MetaContent" name="MetaContent" type="text" />
+    </p>
+    <input type="submit" value="Save" />
+    </fieldset>
+}

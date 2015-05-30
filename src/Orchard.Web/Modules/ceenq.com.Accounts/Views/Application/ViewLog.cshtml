@@ -1,0 +1,37 @@
+@using Orchard.Utility.Extensions
+@model ceenq.com.Accounts.ViewModels.AppLogViewModel
+
+@{
+    Layout.Title = T("App Log File").ToString();
+    Script.Require("jQuery").AtHead();
+}
+@using (Html.BeginFormAntiForgeryPost())
+{
+    <fieldset>
+
+        <a href="@Url.Action("Refresh", new {id = Model.ApplicationId, returnUrl = ViewContext.RequestContext.HttpContext.Request.ToUrlString()})" itemprop="UnsafeUrl" class="button primaryAction">@T("Refresh")</a>
+        <a href="@Url.Action("Clear", new {id = Model.ApplicationId, returnUrl = ViewContext.RequestContext.HttpContext.Request.ToUrlString()})" itemprop="UnsafeUrl" class="button primaryAction">@T("Clear Log")</a>
+    </fieldset>
+
+    <fieldset>
+        <div>
+            @Html.LabelFor(m => m.LogFile, T("Application Request Log"))
+            @Html.TextAreaFor(m => m.LogFile, new {@class = "text large"})
+        </div>
+    </fieldset>
+
+    <script type="text/javascript" language="javascript">
+        resizeTextAreas = function() {
+            $('textarea').each(function() {
+                var str = $(this).val();
+                var linecount = 0;
+                $(str.split("\n")).each(function(index, item) {
+                    linecount ++;
+                });
+                $(this).attr("rows", linecount + 1);
+            });
+
+        };
+        resizeTextAreas(); //initial on load
+    </script>
+}

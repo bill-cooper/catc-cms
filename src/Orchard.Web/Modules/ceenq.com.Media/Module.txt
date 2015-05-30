@@ -1,0 +1,11 @@
+﻿Name: ceenq.com.Media
+AntiForgery: enabled
+Author: Ceenq Software Solutions
+Website: http://ceenq.com
+Version: 1.0
+OrchardVersion: 1.7
+Description: A module to provide services and customizations to media such as audio and video.
+Dependencies: ceenq.com.Core
+Features:
+    ceenq.com.Media:
+        Description: Description for feature ceenq.com.Media.

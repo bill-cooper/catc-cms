@@ -1,0 +1,27 @@
+﻿@model List<ceenq.com.Logging.ViewModel.LogViewModel>
+@{
+
+    Layout.Title = T("Log Entries").ToString();
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Time</th>
+            <th>Level</th>
+            <th>Message</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var logEntry in Model)
+        {
+            var message = new HtmlString(Html.Encode(logEntry.Message).Replace("\n", "<br/>"));
+
+            <tr>
+                <td>@logEntry.Timestamp</td>
+                <td>@logEntry.Level</td>
+                <td>@message</td>
+            </tr>
+        }
+    </tbody>
+</table>

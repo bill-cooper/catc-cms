@@ -1,0 +1,11 @@
+﻿Name: ceenq.com.AuditTrail
+AntiForgery: enabled
+Author: Ceenq Cloud Solutions
+Website: http://ceenq.com
+Version: 1.0
+OrchardVersion: 1.0
+Description: Extends functionality in the Orchard.AuditTrail module
+Features:
+    ceenq.com.AuditTrail:
+        Description: Extends functionality in the Orchard.AuditTrail module.
+		Dependencies: ceenq.com.Core, Orchard.AuditTrail

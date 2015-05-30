@@ -1,0 +1,105 @@
+﻿@model ceenq.com.AzureManagement.Models.AzureSettingsPart
+
+
+<fieldset>
+    <legend>@T("Azure Subscription Settings")</legend>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.SubscriptionId)">@T("Azure Subscription Id")</label>
+        @Html.EditorFor(m => m.SubscriptionId)
+        @Html.ValidationMessage("SubscriptionId", "*")
+        <span class="hint">@T("The Subscription Id for the Azure Subscription that should be targeted when creating new cloud components for an account (XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX)")</span>
+    </div>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.Base64EncodedCertificate)">@T("Azure API Access Certificate")</label>
+        @Html.EditorFor(m => m.Base64EncodedCertificate)
+        @Html.ValidationMessage("Base64EncodedCertificate", "*")
+        <span class="hint">@T("This is a base 64 encoded certificate that will be used to manage the Azure subscription via api")</span>
+    </div>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.DataCenterRegion)">@T("Data Center Region")</label>
+        @Html.EditorFor(m => m.DataCenterRegion)
+        @Html.ValidationMessage("DataCenterRegion", "*")
+        <span class="hint">@T("The Azure data center region to use when creating new cloud components for an account (e.g. South Central US)")</span>
+    </div>
+</fieldset>
+<fieldset>
+    <legend>@T("Azure SqlServer Settings")</legend>
+
+    <div>
+        <label for="@Html.FieldIdFor(m => m.SqlServerDomain)">@T("SqlServer Domain")</label>
+        @Html.EditorFor(m => m.SqlServerDomain)
+        @Html.ValidationMessage("SqlServerDomain", "*")
+        <span class="hint">@T("The base domain used by azure for hosted Sql Servers (e.g. database.windows.net)")</span>
+    </div>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.SqlServerDatabaseName)">@T("SqlServer Database Server Name")</label>
+        @Html.EditorFor(m => m.SqlServerDatabaseName)
+        @Html.ValidationMessage("SqlServerDatabaseName", "*")
+        <span class="hint">@T("This is the name of the database server that will host the database associated with a new account")</span>
+    </div>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.SqlServerPort)">@T("SqlServer Port")</label>
+        @Html.EditorFor(m => m.SqlServerPort)
+        @Html.ValidationMessage("SqlServerPort", "*")
+        <span class="hint">@T("SqlServer Port (e.g. 1433)")</span>
+    </div>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.SqlServerDatabaseUsername)">@T("Database Server Username")</label>
+        @Html.EditorFor(m => m.SqlServerDatabaseUsername)
+        @Html.ValidationMessage("SqlServerDatabaseUsername", "*")
+        <span class="hint">@T("Database Server Username")</span>
+    </div>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.SqlServerDatabasePassword)">@T("Database Server Password")</label>
+        @Html.EditorFor(m => m.SqlServerDatabasePassword)
+        @Html.ValidationMessage("SqlServerDatabasePassword", "*")
+        <span class="hint">@T("Database Server Password")</span>
+    </div>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.SqlServerDatabaseCollation)">@T("Account Database Collation")</label>
+        @Html.EditorFor(m => m.SqlServerDatabaseCollation)
+        @Html.ValidationMessage("SqlServerDatabaseCollation", "*")
+        <span class="hint">@T("The Collaction to use when creating a new account database (e.g. SQL_Latin1_General_CP1_CI_AS)")</span>
+    </div>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.SqlServerDatabaseEdition)">@T("Account Database Edition")</label>
+        @Html.EditorFor(m => m.SqlServerDatabaseEdition)
+        @Html.ValidationMessage("SqlServerDatabaseEdition", "*")
+        <span class="hint">@T("The SqlServer Database Edition to use when creating a new account database (e.g. Basic )")</span>
+    </div>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.SqlServerDatabaseMaximumSizeInGb)">@T("Account Database Maximum Size")</label>
+        @Html.EditorFor(m => m.SqlServerDatabaseMaximumSizeInGb)
+        @Html.ValidationMessage("SqlServerDatabaseMaximumSizeInGb", "*")
+        <span class="hint">@T("Size limit in gigabytes for a new account database")</span>
+    </div>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.SqlServerDatabaseConnectionTimeout)">@T("Account Database Connection Timeout")</label>
+        @Html.EditorFor(m => m.SqlServerDatabaseConnectionTimeout)
+        @Html.ValidationMessage("SqlServerDatabaseConnectionTimeout", "*")
+        <span class="hint">@T("The timeout limit to set when creating a new account database")</span>
+    </div>
+</fieldset>
+<fieldset>
+    <legend>@T("Azure Routing Server Settings")</legend>
+
+    <div>
+        <label for="@Html.FieldIdFor(m => m.RoutingServerImageName)">@T("Routing Server Image Name")</label>
+        @Html.EditorFor(m => m.RoutingServerImageName)
+        @Html.ValidationMessage("RoutingServerImageName", "*")
+        <span class="hint">@T("The name of the image that should be used when creating a new routing server VM (e.g. Ubuntu Server 14.04 LTS)")</span>
+    </div>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.RoutingServerAdminUserName)">@T("Routing Server Admin UserName")</label>
+        @Html.EditorFor(m => m.RoutingServerAdminUserName)
+        @Html.ValidationMessage("RoutingServerAdminUserName", "*")
+        <span class="hint">@T("The admin username that should be set on a newly created routing server VM")</span>
+    </div>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.RoutingServerAdminPassword)">@T("Routing Server Admin Password")</label>
+        @Html.EditorFor(m => m.RoutingServerAdminPassword)
+        @Html.ValidationMessage("RoutingServerAdminPassword", "*")
+        <span class="hint">@T("The admin password that should be set on a newly created routing server VM")</span>
+    </div>
+
+</fieldset>

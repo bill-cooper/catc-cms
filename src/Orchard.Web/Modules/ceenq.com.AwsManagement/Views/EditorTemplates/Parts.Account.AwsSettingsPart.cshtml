@@ -1,0 +1,25 @@
+﻿@model ceenq.com.AwsManagement.Models.AwsSettingsPart
+
+
+<fieldset>
+    <legend>@T("Amazon Web Service Settings")</legend>
+
+    <div>
+        <label for="@Html.FieldIdFor(m => m.HostedZoneId)">@T("Route 53 Hosted ZoneId")</label>
+        @Html.EditorFor(m => m.HostedZoneId)
+        @Html.ValidationMessage("HostedZoneId", "*")
+        <span class="hint">@T("The AWS Route 53 hosted zone will be associated with the base domain of the core system (e.g. ncnq.io)")</span>
+    </div>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.AccessKey)">@T("Hosted Zone Access Key")</label>
+        @Html.EditorFor(m => m.AccessKey)
+        @Html.ValidationMessage("AccessKey", "*")
+        <span class="hint">@T("The Access Key for the hosted zone")</span>
+    </div>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.SecretAccessKey)">@T("Hosted Zone Secret Access Key")</label>
+        @Html.EditorFor(m => m.SecretAccessKey)
+        @Html.ValidationMessage("SecretAccessKey", "*")
+        <span class="hint">@T("The Secret Access Key for the hosted zone")</span>
+    </div>
+</fieldset>

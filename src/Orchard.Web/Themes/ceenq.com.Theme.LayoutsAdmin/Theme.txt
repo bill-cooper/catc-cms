@@ -1,0 +1,8 @@
+Name: ceenq.com.Theme.LayoutsAdmin
+Author: The Orchard Team
+Website: http://www.orchardproject.net
+Description: Description for the theme
+Dependencies: ceenq.com.Layouts
+Version: 1.0
+BaseTheme: TheAdmin
+Zones: Header, Messages, BeforeContent, ContentTitle, LocalNavigation, Content, AfterContent, Footer

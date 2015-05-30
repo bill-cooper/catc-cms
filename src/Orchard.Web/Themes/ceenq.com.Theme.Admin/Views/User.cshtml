@@ -1,0 +1,22 @@
+﻿@model dynamic
+@if (Model.CurrentUser != null)
+{
+        <div class="navbar-collapse collapse pull-right">
+            <ul class="nav navbar-nav">
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#">
+                        <strong>@Html.ItemDisplayText((Orchard.ContentManagement.IContent)Model.CurrentUser)</strong> <span class="caret"></span>
+                    </a>
+                    <ul id="g-account-menu" class="dropdown-menu right-menu" role="menu">
+                        <li>
+                            @Html.ActionLink(T("Change Password").ToString(), "ChangePassword", new { Area = "Orchard.Users", Controller = "Account" })
+                        </li>
+                        <li>@Html.ActionLink(T("Logout").ToString(), "LogOff", new { Area = "Orchard.Users", Controller = "Account" })</li>
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    
+}

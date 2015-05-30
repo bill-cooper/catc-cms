@@ -1,0 +1,77 @@
+﻿<?xml version="1.0"?>
+<Orchard>
+  <Recipe>
+    <Name>Ceenq Base CMS</Name>
+    <Description>A recipe providing only the core Ceenq solution.</Description>
+    <Author>Ceenq Software Solutions</Author>
+    <WebSite>http://ceenq.com</WebSite>
+    <Tags>developer</Tags>
+    <Version>1.0</Version>
+  </Recipe>
+
+  <Feature 
+           enable="
+
+           ,Orchard.Comments
+           ,Orchard.Tags
+           ,Orchard.Alias
+           ,Orchard.Autoroute
+           ,Orchard.MediaLibrary
+           ,Orchard.MediaProcessing
+           ,Orchard.ImageEditor
+           ,Orchard.ContentPicker
+           ,Orchard.PublishLater
+           ,Orchard.jQuery
+           ,Orchard.Widgets
+           ,Orchard.ContentTypes
+           ,Orchard.Scripting
+           ,Orchard.Scripting.Lightweight
+           ,Orchard.Packaging
+           ,Orchard.Projections
+           ,Orchard.Fields
+           ,Orchard.OutputCache
+           ,Orchard.Taxonomies
+           ,Orchard.Workflows
+           ,Orchard.ContentPermissions
+           ,Orchard.Email
+           ,Orchard.Templates
+           ,Orchard.ImportExport
+           ,Orchard.Indexing
+           ,Orchard.Search
+           ,Orchard.JobsQueue
+           ,Lucene
+           
+           ,ceenq.com.Core
+           ,ceenq.com.Common
+           ,ceenq.com.TinyMce
+           ,ceenq.com.Theme.Admin
+           ,ceenq.com.AdminMenu
+           
+           
+           
+           
+           
+           "/>
+  
+  <Metadata>
+    <Types>
+      <Page ContentTypeSettings.Draftable="True" />    
+    </Types>
+    <Parts>
+      <BodyPart BodyPartSettings.FlavorDefault="html" />
+    </Parts>
+  </Metadata>
+
+  <Settings />
+
+  <Migration features="*" />
+  
+  <Command>
+    layer create Default /LayerRule:"true" /Description:"The widgets in this layer are displayed on all pages"
+    layer create Authenticated /LayerRule:"authenticated" /Description:"The widgets in this layer are displayed when the user is authenticated"
+    layer create Anonymous /LayerRule:"not authenticated" /Description:"The widgets in this layer are displayed when the user is anonymous"
+    layer create Disabled /LayerRule:"false" /Description:"The widgets in this layer are never displayed"
+    layer create TheHomepage /LayerRule:"url '~/'" /Description:"The widgets in this layer are displayed on the home page"
+    page create /Slug:"home" /Title:"Home" /Path:"home" /Homepage:true /Publish:true /Text:"" /MenuText:"Home" /MenuName:"Main Menu"
+  </Command>
+</Orchard>

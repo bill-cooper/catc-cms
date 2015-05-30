@@ -1,0 +1,11 @@
+﻿Name: ceenq.com.Metro
+AntiForgery: enabled
+Author: Ceenq Software Solutions
+Website: http://ceenq.com
+Version: 1.7.2
+OrchardVersion: 1.7.2
+Dependencies: Orchard.jQuery
+Description: Provides metro js assets
+Features:
+    ceenq.com.Metro:
+        Description: Provides metro js assets

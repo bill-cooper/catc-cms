@@ -1,0 +1,29 @@
+﻿@model List<kosfiz.WebSiteOwner.Models.WebSiteOwnerRecord>
+@{
+    Style.Require("WebSiteOwnerStyle");
+}
+<h1>@Html.TitleForPage(T("Ownership verification codes").ToString())</h1>
+<div class="add-code">
+@Html.ActionLink(T("Create").ToString(), "Create")
+</div>
+@ViewBag.EmptyMessage
+@if (Model != null && Model.Count > 0)
+{
+    @*<a href="@Url.Action("Create", "Admin")">@T("Create")</a>*@
+    <table cellpadding="0" cellspacing="0" class="codes-list">
+    <tr>
+        <th>@T("Title")</th>
+        <th class="code-action">@T("Actions")</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td><a href="@Url.Action("Edit", "Admin", new { Id = item.Id })">@item.Title</a></td>
+            <td>
+                <a href="@Url.Action("Edit", "Admin", new { Id = item.Id })">@T("Edit")</a> | <a href="@Url.Action("Delete", "Admin", new { Id = item.Id })">@T("Remove")</a>
+            </td>
+        </tr>
+    }
+
+    </table>
+}

@@ -1,0 +1,10 @@
+Name: EMS Page Title Override
+Path: EMS.PageTitleOverride
+AntiForgery: enabled
+Author: Endless Mountain Solutions
+Website: http://www.endlessmountainsolutions.com
+Version: 1.0
+OrchardVersion: 1.0
+Description: Provides additional controls over how you want the page title displayed.
+Category: Content
+Dependencies: 

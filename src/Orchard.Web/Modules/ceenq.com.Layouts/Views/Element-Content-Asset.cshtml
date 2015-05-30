@@ -1,0 +1,8 @@
+﻿@using ceenq.com.Layouts.Elements
+@using Orchard.DisplayManagement.Shapes
+@using Orchard.Layouts.Helpers
+@{
+    var element = (Asset)Model.Element;
+    var text = element.Content;
+}
+@Html.Raw(text)

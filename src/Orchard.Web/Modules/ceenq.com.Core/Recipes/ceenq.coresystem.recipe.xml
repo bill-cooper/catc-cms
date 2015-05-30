@@ -1,0 +1,71 @@
+﻿<?xml version="1.0"?>
+<Orchard>
+  <Recipe>
+    <Name>coresystem</Name>
+    <Description>A recipe for the cnq core system.</Description>
+    <Author>Ceenq Software Solutions</Author>
+    <WebSite>http://ceenq.com</WebSite>
+    <Tags>developer</Tags>
+    <Version>1.0</Version>
+    <IsSetupRecipe>true</IsSetupRecipe>
+  </Recipe>
+
+  <Feature
+           enable="
+           ,Orchard.Alias
+           ,Orchard.Autoroute
+           ,Orchard.jQuery
+           ,Orchard.ContentTypes
+           ,Orchard.Scripting
+           ,Orchard.Scripting.Lightweight
+           ,Orchard.Packaging
+           ,Orchard.OutputCache
+           ,Orchard.ImportExport
+           ,Orchard.JobsQueue
+           ,Orchard.Email
+           
+           ,ceenq.com.Core
+           ,ceenq.com.AzureCloudStorageManagement
+           ,ceenq.com.Common
+           ,ceenq.com.AzureManagement
+           ,ceenq.com.AwsManagement
+           ,ceenq.com.Accounts
+           ,ceenq.com.Theme.Admin
+           ,ceenq.com.Theme.ContentServices
+           ,ceenq.com.DashboardApp
+           ,ceenq.com.Tenants
+           ,ceenq.com.RoutingServer
+           ,ceenq.com.Apps
+           ,ceenq.com.AppRoutingServer
+           ,ceenq.com.LinuxCommands
+           "/>
+
+  <Metadata>
+    <Types>
+      <Page ContentTypeSettings.Draftable="True" />
+    </Types>
+    <Parts>
+      <BodyPart BodyPartSettings.FlavorDefault="html" />
+    </Parts>
+  </Metadata>
+  
+  <Data>
+  </Data>
+
+  <Settings>
+    <AzureDefaultSettingsPart SqlServerDomain="database.windows.net" SqlServerPort="1433" Base64EncodedCertificate="" SubscriptionId="" SqlServerDatabaseName="" SqlServerDatabaseUsername="" SqlServerDatabasePassword="" SqlServerDatabaseCollation="SQL_Latin1_General_CP1_CI_AS" SqlServerDatabaseEdition="Basic" SqlServerDatabaseMaximumSizeInGb="2" SqlServerDatabaseConnectionTimeout="30" DataCenterRegion="South Central US" RoutingServerImageName="Ubuntu Server 14.04 LTS" RoutingServerAdminUserName="" RoutingServerAdminPassword="" />
+    <AwsDefaultSettingsPart HostedZoneId="ZIBVYDCO5KQI7" AccessKey="" SecretAccessKey="" />
+    <RegistrationSettingsPart UsersCanRegister="false" UsersMustValidateEmail="true" ValidateEmailRegisteredWebsite="cnq.io" ValidateEmailContactEMail="info@ceenq.com" UsersAreModerated="false" NotifyModeration="false" NotificationsRecipients="" EnableLostPassword="false"/>
+    <CoreSettingsPart AccountDomain="" ParentTenant="Default"/>
+    <SmtpSettingsPart Address="info@ceenq.com" Host="127.0.0.1" Port="25" EnableSsl="false" RequireCredentials="false" UserName="" Password=""/>
+    <CloudStorageSettingsPart StorageAccount="" StorageKey=""/>
+    <DashboardAppSettingsPart ApplicationTenant="cnq" ApplicationName="dashboard"/>
+  </Settings>
+
+  <Migration features="*" />
+
+  <Command>
+    site setting set baseurl
+    theme activate "ceenq.com.Theme.CoreAdmin"
+  </Command>
+</Orchard>

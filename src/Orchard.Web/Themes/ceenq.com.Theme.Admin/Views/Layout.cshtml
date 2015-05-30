@@ -1,0 +1,138 @@
+﻿@model dynamic
+@using Orchard.Security;
+@using Orchard.DisplayManagement.Descriptors;
+@using Orchard.UI.Resources;
+@using Orchard;
+@using Orchard.ContentManagement;
+
+@{
+    SetMeta("X-UA-Compatible", "IE=edge,chrome=1");
+    SetMeta("viewport", "width=device-width, initial-scale=1, maximum-scale=1");
+    Style.Include("bootstrap.min.css"); // minified style sheet
+    Style.Include("yamm.css");
+    Style.Require("FontAwesome");
+    Style.Include("site.css");
+    Style.Include("ie.css").UseCondition("gte IE 9").SetAttribute("media", "screen, projection");
+    Style.Include("ie8.css").UseCondition("IE 8").SetAttribute("media", "screen, projection");
+    Style.Include("ie7.css").UseCondition("lte IE 7").SetAttribute("media", "screen, projection");
+    Script.Require("jQuery");
+    Script.Require("ShapesBase");
+    Script.Include("admin.js");
+    Script.Include("bootstrap.min.js");
+    Script.Include("stylefixup.js");
+
+
+    /* Some useful shortcuts or settings
+    ***************************************************************/
+
+    Func<dynamic, dynamic> Zone = x => Display(x); // Zone as an alias for Display to help make it obvious when we're displaying zones
+
+    /* Inserting some ad hoc shapes
+    ***************************************************************/
+
+
+    Model.Header.Add(Display.Branding());
+    Model.TopRight.Add(Display.User(CurrentUser: WorkContext.CurrentUser));
+
+    Model.Footer.Add(Display.Footer());
+
+
+
+    if (Model.Title != null)
+    {
+        Model.ContentTitle.Add(Display.Title(Title: Model.Title));
+    }
+}
+<div id="layout-content">
+    <div id="layout-main">
+        <div id="top-nav" class="navbar navbar-inverse navbar-static-top">
+            @if (Model.Header != null)
+            {
+            @Zone(Model.Header)
+            }
+            @if (Model.TopRight != null)
+            {
+            @Zone(Model.TopRight)
+            }
+        </div>
+        <div id="main-container">
+            @Zone(Model.LeftMenu)
+            <section id="content-section">
+                <div id="content-container" class="container-fluid">
+                    <div class=" row">
+                        <div class="col-md-12">
+
+                            @if (Model.ContentTitle != null)
+                            {
+                            @Zone(Model.ContentTitle)
+                            }
+                            @if (Model.Messages != null)
+                            {
+                            <div>
+                                @Zone(Model.Messages)
+                            </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div>
+                                <ul class="breadcrumb">
+                                    <li class="active"><i class="icon-home"></i>Home</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    @if (Model.BeforeContent != null)
+                    {
+                    <div class="row">
+                        <div class="col-md-12">
+                            @Zone(Model.BeforeContent)
+                        </div>
+                    </div>
+                    }
+                    @if (Model.LocalNavigation != null)
+                    {
+                    <div class="row">
+                        <div class="col-md-12">
+                            @Zone(Model.LocalNavigation)
+                        </div>
+                    </div>
+                    }
+                    @if (Model.Content != null)
+                    {
+                    <div class="row">
+                        <div class="col-md-12">
+
+
+                            @Zone(Model.Content)
+                        </div>
+
+                    </div>
+                    }
+                    @if (Model.AfterContent != null)
+                    {
+                    <div class="row">
+                        <div class="col-md-12">
+                            @Zone(Model.AfterContent)
+                        </div>
+                    </div>
+                    }
+                </div>
+
+            </section>
+        </div>
+    </div>
+</div>
+@if (Model.Footer != null)
+{
+    @Zone(Model.Footer)
+}
+@using (Script.Foot())
+{
+    <script type="text/javascript">
+        //<![CDATA[
+        var confirmRemoveMessage = '@T("Are you sure you want to remove this element ?")';
+        //]]>
+    </script>
+}

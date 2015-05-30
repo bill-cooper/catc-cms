@@ -1,0 +1,35 @@
+@model ceenq.com.RoutingServer.ViewModels.CommandViewModel
+
+@{
+    Layout.Title = T("Server Log").ToString();
+    Script.Require("jQuery").AtHead();
+}
+
+@using (Html.BeginFormAntiForgeryPost())
+{
+    @Html.ValidationSummary();
+    <fieldset>
+        <button class="primaryAction" type="submit" name="submit.Command" value="@T("Execute Command")">@T("Execute Command")</button>
+    </fieldset>
+    <div>
+        <label for="@Html.FieldIdFor(m => m.CommandText)">@T("Command to Execute")</label>
+        @Html.EditorFor(m => m.CommandText)
+    </div>
+    <div>
+        @Html.TextArea("text-area", (string)Model.CommandResult, 35, 80, new { })
+    </div>
+    <script type="text/javascript" language="javascript">
+        resizeIt = function () {
+            var str = $('#text-area').val();
+            var cols = $('#text-area').attr("cols");
+
+            var linecount = 0;
+            $(str.split("\n")).each(function (index, item) {
+                linecount += Math.ceil(item.length / cols); // take into account long lines
+            })
+            $('#text-area').attr("rows", linecount + 1);
+        };
+        resizeIt(); //initial on load
+    </script>
+
+}

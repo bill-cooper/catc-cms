@@ -1,0 +1,28 @@
+﻿<Placement>
+  <Place Part_ResourcePart_Edit="Content:0.1"/>
+
+  <Match DisplayType="Detail">
+    <Place Parts_Resource="Content:2"/>
+  </Match>
+  <Match ContentType="Sermon">
+    <Place Parts_Common_Metadata="-"/>
+    <Place Fields_TaxonomyField="Meta:1"/>
+    <Place Fields_MediaLibraryPicker="Content:1"/>
+    <Place Parts_Resource="Content:2"/>
+    <Match DisplayType="Summary">
+      <Place Fields_MediaLibraryPicker="Content"/>
+      <Place Parts_Resource_Summary="Content:2"/>
+      <Place Parts_Common_Metadata_Summary="-"/>
+      
+    </Match>
+  </Match>
+  <Match ContentType="SeriesTerm">
+    <Place Parts_Common_Metadata="-"/>
+  </Match>
+  <Match ContentType="BookTerm">
+    <Place Parts_Common_Metadata="-"/>
+  </Match>
+  <Match ContentType="SpeakerTerm">
+    <Place Parts_Common_Metadata="-"/>
+  </Match>
+</Placement>

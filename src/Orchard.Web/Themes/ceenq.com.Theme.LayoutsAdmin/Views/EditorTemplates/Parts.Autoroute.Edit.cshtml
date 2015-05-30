@@ -1,0 +1,45 @@
+﻿@model Orchard.Autoroute.ViewModels.AutoroutePartEditViewModel
+@using Orchard.Autoroute
+@using Orchard.Mvc.Extensions
+@using Orchard.Utility.Extensions;
+@using Orchard.Environment.Configuration
+
+@if(Model.Settings.DefaultPatternIndex == -1) {
+    <div class="message message-Error">@T("The current Content Type does not have a default Autoroute Pattern. Please edit the settings first.")</div>
+    return;
+}
+
+@{
+    var defaultPattern = Model.Settings.Patterns[Model.Settings.DefaultPatternIndex];
+    var urlPrefix = WorkContext.Resolve<ShellSettings>().RequestUrlPrefix;
+    if (!String.IsNullOrWhiteSpace(urlPrefix)) {
+        urlPrefix += "/";
+    }
+
+}
+
+@if (!Model.PromoteToHomePage) {
+    <fieldset class="permalink">
+        <label>@T("Permalink")</label>
+        @if (Model.Settings.AllowCustomPattern) {
+            <span>@Html.TextBoxFor(m => m.CurrentUrl, new {@class = "text"})</span>
+            <span class="hint">@T("Save the current item and leave the input empty to have it automatically generated using the pattern {0} e.g., {1}", defaultPattern.Name, defaultPattern.Description)</span>
+        }
+        else {
+            var hintClass = string.Empty;
+            if (!string.IsNullOrEmpty(Model.CurrentUrl)) {
+                hintClass = "hint";
+                <span>@Url.MakeAbsolute("/")@urlPrefix@Model.CurrentUrl</span>
+            }
+
+            if (string.IsNullOrEmpty(Model.CurrentUrl)
+                || (!string.IsNullOrEmpty(Model.CurrentUrl) && Model.Settings.AutomaticAdjustmentOnEdit)) {
+                <span class="@hintClass">@T("Save the current item and the url will be generated using the pattern {0} e.g., {1}", defaultPattern.Name, defaultPattern.Description)</span>
+            }
+        }
+
+    </fieldset>
+}
+else {
+    <span>@T("This content is the current home page")</span>
+}

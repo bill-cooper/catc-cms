@@ -1,0 +1,74 @@
+﻿@{
+    Func<dynamic, dynamic> Zone = x => Display(x); // Zone as an alias for Display to help make it obvious when we're displaying zones
+
+    WorkContext.Layout.Top.Add(New.Top(), "0");
+    WorkContext.Layout.Footer.Add(New.BadgeOfHonor(), "10");
+}
+<div class="body">
+    @if (Model.Navigation != null)
+    {
+        <header>
+            @if (Model.Top != null)
+            {
+                @Zone(Model.Top)
+            }
+            @Zone(Model.Navigation)
+        </header>
+    }
+    <div role="main" class="main">
+        @Zone(Model.FeaturedOverlay)
+        @Zone(Model.Featured)
+        @Zone(Model.BeforeMain)
+        @if (Model.AsideFirst != null)
+        {
+            @Zone(Model.AsideFirst)
+        }
+        @Zone(Model.Messages)
+        @Zone(Model.BeforeContent)
+        @if (Model.Content != null)
+        {
+            <div id="content" class="content full">
+                @Zone(Model.Content)
+            </div>
+        }
+        @if (Model.AfterContent != null)
+        {
+            <div class="map-section">
+                <section class="featured footer map">
+                    <div class="container">
+                        <div class="row">
+                            @Zone(Model.AfterContent)
+                        </div>
+                    </div>
+                </section>
+            </div>
+        }
+        @Zone(Model.AsideSecond)
+        @Zone(Model.AfterMain)
+        @Zone(Model.TripelFirst)
+        @Zone(Model.TripelSecond)
+        @Zone(Model.TripelThird)
+
+    </div>
+
+    <footer>
+        @if (Model.FooterQuadFirst != null || Model.FooterQuadSecond != null || Model.FooterQuadThird != null || Model.FooterQuadFourth != null)
+        {
+            <div class="container">
+                <div class="row">
+                    <div class="footer-ribon">
+                        <span>Get in Touch</span>
+                    </div>
+                    @Zone(Model.FooterQuadFirst)
+                    @Zone(Model.FooterQuadSecond)
+                    @Zone(Model.FooterQuadThird)
+                    @Zone(Model.FooterQuadFourth)
+                </div>
+            </div>
+        }
+        @if (Model.Footer != null)
+        {
+            @Zone(Model.Footer)
+        }
+    </footer>
+</div>

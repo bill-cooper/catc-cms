@@ -1,0 +1,18 @@
+﻿@using Orchard
+@using ceenq.com.Theme.Admin.Services
+@{
+    
+    var adminThemeSettings = WorkContext.Resolve<IAdminThemeSettingsService>().GetServiceSettings();
+    
+    
+    
+    var version = new System.Reflection.AssemblyName(typeof(Orchard.ContentManagement.ContentItem).Assembly.FullName).Version.ToString();
+}
+<footer class="footer">
+    @if (String.IsNullOrWhiteSpace(adminThemeSettings.Footer)) {
+        <a href="@WorkContext.CurrentTheme.WebSite">Copyright © @DateTime.Now.Year @WorkContext.CurrentTheme.Name</a> @Html.Encode(" | ") @T("v.{0}", version)
+
+    }else{
+        @Html.Raw(adminThemeSettings.Footer)
+    }
+</footer>

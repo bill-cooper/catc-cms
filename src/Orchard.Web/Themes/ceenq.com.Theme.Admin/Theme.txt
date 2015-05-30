@@ -1,0 +1,7 @@
+Name: ceenq Admin Dashboard
+Author: Ceenq Software Solutions
+Website: http://www.ceenq.com
+Description: Ceenq Software Solutions base admin panel theme
+Version: 1.0
+BaseTheme: TheAdmin
+Zones: Header, Messages, BeforeContent, ContentTitle, LocalNavigation, Content, AfterContent, Footer

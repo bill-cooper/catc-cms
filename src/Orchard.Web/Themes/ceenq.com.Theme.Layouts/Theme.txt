@@ -1,0 +1,8 @@
+Name: ceenq.com.Theme.Layouts
+Author: The Orchard Team
+Website: http://www.orchardproject.net
+Description: Description for the theme
+Dependencies: ceenq.com.Layouts
+Version: 1.0
+# todo: provide tags
+# Tags: Classic, Serif

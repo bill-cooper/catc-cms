@@ -1,0 +1,26 @@
+﻿<?xml version="1.0"?>
+<Orchard>
+  <Recipe>
+    <Name>Create Google Calendar Page Type</Name>
+    <Description>Creates "Google Calendar" content type that acts like a routable page.</Description>
+    <Author>Vojtěch Vít</Author>
+    <WebSite>http://vitusgooglecalendar.codeplex.com</WebSite>
+    <Tags>Events</Tags>
+    <Version>1.0</Version>
+  </Recipe>
+  
+  <Feature enable="Vitus.GoogleCalendar" />
+  
+  <Metadata>
+    <Types>
+      <GoogleCalendarPage ContentTypeSettings.Creatable="True">
+        <CommonPart />
+        <TitlePart />
+        <LocalizationPart />
+        <AutoroutePart AutorouteSettings.AllowCustomPattern="True" AutorouteSettings.AutomaticAdjustmentOnEdit="False" AutorouteSettings.PatternDefinitions="[{Name:'Title', Pattern: '{Content.Slug}', Description: 'my-calendar'}]" AutorouteSettings.DefaultPatternIndex="0" />
+        <GoogleCalendarPart />
+        <MenuPart />
+      </GoogleCalendarPage>
+    </Types>
+  </Metadata>
+</Orchard>

@@ -1,0 +1,100 @@
+﻿@using Vitus.GoogleCalendar.Models
+@using System.Text
+
+@functions
+{
+    class GoogleCalendarReference
+    {
+        public string Url { get; set; }
+        public string ClassName { get; set; }
+    }
+
+    HtmlString RefsToJson(IEnumerable<GoogleCalendarReference> gcReferences)
+    {
+        var sb = new StringBuilder();
+        sb.Append("[");
+        
+        foreach(var gcRef in gcReferences)
+        {
+            sb.Append("{url:'");
+            sb.Append(gcRef.Url);
+            sb.Append("',className:'");
+            sb.Append(gcRef.ClassName);
+            sb.Append("'},");
+        }
+        
+        sb.Append("]");
+        
+        return new HtmlString(sb.ToString());
+    }
+    
+    string ToCamelCase(string str)
+    {
+        return str[0].ToString().ToLower() + str.Substring(1);
+    }
+}
+
+@{
+    Script.Require("FullCalendar_GoogleCalendar");
+    
+    var calendar = Model.Calendar as GoogleCalendarPart;
+}
+
+@Display(New.FullCalendarLocalization())
+
+<div id="GoogleCalendar-@calendar.Id"></div>
+
+@using (Script.Foot())
+{
+    var gcReferences = calendar.GoogleCalendarUrls.Split(',')
+        .Select(gcUrl => new GoogleCalendarReference
+        {
+            Url = gcUrl
+        })
+        .ToArray();
+
+    if (calendar.GoogleCalendarClasses != null)
+    {
+        var gcClasses = calendar.GoogleCalendarClasses.Split(',');
+
+        if (gcClasses.Length <= gcReferences.Length)
+        {
+            for (int x = 0; x < gcClasses.Length; x++)
+            {
+                gcReferences[x].ClassName = gcClasses[x];
+            }
+        }
+    }
+    
+    <script type="text/javascript">
+    //<![CDATA[
+        $(document).ready(function () {
+
+            var options = {
+                eventSources: @RefsToJson(gcReferences),
+                theme: @calendar.Theme.ToString().ToLower(),
+                defaultView: '@ToCamelCase(calendar.DefaultView.ToString("G"))',
+                header: {
+                    left: '@calendar.HeaderLeft',
+                    center: '@calendar.HeaderCenter',
+                    right: '@calendar.HeaderRight'
+                },
+                weekMode: '@ToCamelCase(calendar.WeekMode.ToString("G"))',
+                weekends: @calendar.Weekends.ToString().ToLower(),
+                weekNumbers: @calendar.WeekNumbers.ToString().ToLower(),
+                allDaySlot: @calendar.AllDaySlot.ToString().ToLower(),
+                slotMinutes: @calendar.SlotMinutes,
+                defaultEventMinutes: @calendar.DefaultEventMinutes,
+                firstHour: @calendar.FirstHour,
+                minTime: @calendar.MinTime,
+                maxTime: @calendar.MaxTime
+                };
+
+            $.extend(true, options, fullCalendarLocalizedOptions);
+
+            $('#GoogleCalendar-@calendar.Id').fullCalendar(options);
+
+        });
+    //]]>
+    </script>
+}
